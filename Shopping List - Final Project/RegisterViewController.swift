@@ -9,6 +9,11 @@
 import UIKit
 
 class RegisterViewController: UIViewController {
+    
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var confirmPassTextField: UITextField!
+    @IBOutlet weak var passTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +25,15 @@ class RegisterViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // Clears all the fields
+    @IBAction func clearFieldsClicked(_ sender: UIButton) {
+        nameTextField.text = ""
+        confirmPassTextField.text = ""
+        passTextField.text = ""
+        emailTextField.text = ""
+    }
+    
     
 
     /*

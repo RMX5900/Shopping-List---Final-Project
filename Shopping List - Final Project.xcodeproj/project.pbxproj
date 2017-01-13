@@ -14,6 +14,7 @@
 		840D899B1E290043002EB764 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840D89991E290043002EB764 /* LaunchScreen.storyboard */; };
 		840D89A61E290043002EB764 /* Shopping_List___Final_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840D89A51E290043002EB764 /* Shopping_List___Final_ProjectTests.swift */; };
 		840D89B11E290044002EB764 /* Shopping_List___Final_ProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840D89B01E290044002EB764 /* Shopping_List___Final_ProjectUITests.swift */; };
+		840E2BF21E29715D0050802C /* MailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E2BF11E29715D0050802C /* MailTableViewCell.swift */; };
 		84F532441E2921190043455D /* ShoppingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F532431E2921190043455D /* ShoppingListTableViewController.swift */; };
 		84F532461E2921850043455D /* AddNewProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F532451E2921850043455D /* AddNewProductViewController.swift */; };
 		84F532481E2921F70043455D /* ShoppingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F532471E2921F70043455D /* ShoppingTableViewCell.swift */; };
@@ -55,6 +56,7 @@
 		840D89AC1E290044002EB764 /* Shopping List - Final ProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shopping List - Final ProjectUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		840D89B01E290044002EB764 /* Shopping_List___Final_ProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shopping_List___Final_ProjectUITests.swift"; sourceTree = "<group>"; };
 		840D89B21E290044002EB764 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		840E2BF11E29715D0050802C /* MailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailTableViewCell.swift; sourceTree = "<group>"; };
 		84F532431E2921190043455D /* ShoppingListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewController.swift; sourceTree = "<group>"; };
 		84F532451E2921850043455D /* AddNewProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewProductViewController.swift; sourceTree = "<group>"; };
 		84F532471E2921F70043455D /* ShoppingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewCell.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				84F5324D1E2923E40043455D /* CreateNewGroupViewController.swift */,
 				84F5324F1E2924060043455D /* JoinGroupViewController.swift */,
 				84F532511E2924AE0043455D /* GroupsTableViewController.swift */,
+				840E2BF11E29715D0050802C /* MailTableViewCell.swift */,
 			);
 			path = "Shopping List - Final Project";
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				84F5324E1E2923E40043455D /* CreateNewGroupViewController.swift in Sources */,
 				84F532461E2921850043455D /* AddNewProductViewController.swift in Sources */,
 				84F5324A1E2923980043455D /* RegisterViewController.swift in Sources */,
+				840E2BF21E29715D0050802C /* MailTableViewCell.swift in Sources */,
 				840D89911E290043002EB764 /* AppDelegate.swift in Sources */,
 				84F532441E2921190043455D /* ShoppingListTableViewController.swift in Sources */,
 			);
