@@ -9,9 +9,23 @@
 import UIKit
 
 class ShoppingListTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    var group:Group = Group(mails: [], name: "", list: [])
+    
+    var isOnEditMode:Bool = false
+    
+    var shoppingList:[Product] = []
+    
+    @IBOutlet weak var navigationBar: UINavigationItem!
 
+    @IBOutlet weak var productsTableView: UITableView!
+    
+    @IBOutlet weak var editBarButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationBar.title = group.groupName + " List"
 
         // Do any additional setup after loading the view.
     }
@@ -24,34 +38,35 @@ class ShoppingListTableViewController: UIViewController, UITableViewDataSource, 
 
     // Changing the edit mode accordingly
     @IBAction func onEditListClick(_ sender: UIBarButtonItem) {
-        // If is not on edit mode
-        /*if (!self.isOnEditMode){
+        if (!self.isOnEditMode){
             self.isOnEditMode = true
-            self.editBarButton.image=#imageLiteral(resourceName: "finishEditIcon")
-            self.StudentsTableView.setEditing(true, animated: true)
+            self.editBarButton.title = "Done"
+            self.productsTableView.setEditing(true, animated: true)
         }
         else{
             self.isOnEditMode = false
-            self.editBarButton.image=#imageLiteral(resourceName: "editIcon")
-            self.StudentsTableView.setEditing(false, animated: true)
-        }*/
+            self.editBarButton.title = "Edit"
+            self.productsTableView.setEditing(false, animated: true)
+        }
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         // Returs the number of students
         //return self.studentsList.count
-        return 1
+        return shoppingList.count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        // Sets the students in the table
-        //let rowCell = self.StudentsTableView.dequeueReusableCell(withIdentifier: "studentCell", for: indexPath)
+        // Sets the products in the table
+        let rowCell = self.productsTableView.dequeueReusableCell(withIdentifier: "productCell", for: indexPath)
         
-        //let studentCell = rowCell as! StudentTableViewCell
-        //studentCell.stFirstName.text = self.studentsList[indexPath.row].firstName
-        //studentCell.stLastName.text = self.studentsList[indexPath.row].lastName
+        let productCell = rowCell as! ProductTableViewCell
+        productCell.productNameLabel.text = self.shoppingList[indexPath.row].productName
+        productCell.productCompanyLabel.text = self.shoppingList[indexPath.row].productCompany
+        productCell.productQuantityLabel.text = String(self.shoppingList[indexPath.row].productQuantity)
+        productCell.productImageView.image = self.shoppingList[indexPath.row].productImage
         
-        return UITableViewCell()
+        return productCell
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
@@ -66,10 +81,10 @@ class ShoppingListTableViewController: UIViewController, UITableViewDataSource, 
     
     public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
         // Delete the student from the list
-        //self.studentsList.remove(at: indexPath.row)
+        self.shoppingList.remove(at: indexPath.row)
         
         // Remove the student row from the tableview
-        //self.StudentsTableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+        self.productsTableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -82,7 +97,20 @@ class ShoppingListTableViewController: UIViewController, UITableViewDataSource, 
     
     // The unwind segue from new product
     @IBAction func unwindToShoppingListTableViewController(segue: UIStoryboardSegue){
-        if let newStudentVc = segue.source as? AddNewProductViewController{
+        if let newProductVc = segue.source as? AddNewProductViewController{
+            if (segue.identifier == "addNewProductUnwindSegue"){
+                // Create a new product by the details
+                let newProduct:Product = Product(name: newProductVc.productNameLabel.text!, company: newProductVc.productCompanyLabel.text!,quantity:Int(newProductVc.productQuantityLabel.text!)!, image: newProductVc.productImage)
+                
+                // Adding the item to the list
+                self.shoppingList.append(newProduct)
+                
+                // Upadte the group
+                self.group.shoppingList = self.shoppingList
+                
+                // Refresh data
+                self.productsTableView.reloadData()
+            }
             
             // Create a new student by the details
             //let newStud:Student = Student(fName: newStudentVc.firstNameText.text!, lName: newStudentVc.lastNameText.text!, stID: newStudentVc.studentIdText.text!, phoneNum: newStudentVc.phoneText.text!)

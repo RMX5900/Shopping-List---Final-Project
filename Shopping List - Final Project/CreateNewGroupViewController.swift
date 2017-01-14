@@ -10,25 +10,63 @@ import UIKit
 
 class CreateNewGroupViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
+    @IBOutlet weak var createButton: UIButton!
+    
     @IBOutlet weak var invitedEmailTableView: UITableView!
     
     @IBOutlet weak var particEmailTextField: UITextField!
     
     @IBOutlet weak var groupNameTextField: UITextField!
     
+    @IBOutlet weak var addMailButton: UIButton!
+    
     var emailsList:[String] = []
     
     @IBAction func addParticClicked(_ sender: UIButton) {
-        //invitedEmailTableView.insertRows(at: [0], with: UITableViewRowAnimation.fade)
+        
+        // Add the email to the list
         emailsList.append(particEmailTextField.text!)
+        
+        // Erase the text field after adding the mail
         particEmailTextField.text = ""
 
         // Refresh the tableview
         self.invitedEmailTableView.reloadData()
     }
     
+    // Called when the mail text changes
+    func mailTextFieldDidChange(textField:UITextField){
+        // Set the regEx Params
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        
+        // Check if the mail is valid
+        if (emailTest.evaluate(with: particEmailTextField.text!)){
+            self.addMailButton.isEnabled = true
+        }
+        else{
+            self.addMailButton.isEnabled = false
+        }
+    }
+    
+    // Called when the group name text changes
+    func groupNameDidChange(textField:UITextField){
+        // SET to false
+        self.createButton.isEnabled = false
+        
+        // IF not empty - enable
+        if (self.groupNameTextField.text! != ""){
+            self.createButton.isEnabled = true
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.particEmailTextField.addTarget(self, action: #selector(mailTextFieldDidChange(textField:)), for: .editingChanged)
+        
+        self.groupNameTextField.addTarget(self, action: #selector(groupNameDidChange(textField:)), for: .editingChanged)
 
         // Enables editing
         self.invitedEmailTableView.setEditing(true, animated: true)

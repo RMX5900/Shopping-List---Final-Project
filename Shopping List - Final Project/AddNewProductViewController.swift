@@ -8,7 +8,34 @@
 
 import UIKit
 
-class AddNewProductViewController: UIViewController {
+class AddNewProductViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    @IBOutlet weak var productNameLabel: UITextField!
+    @IBOutlet weak var productQuantityLabel: UITextField!
+    @IBOutlet weak var productCompanyLabel: UITextField!
+    
+    @IBOutlet weak var cameraButton: UIButton!
+    
+    var productImage:UIImage?
+    
+    @IBAction func cameraButtonClicked(_ sender: UIButton) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary;
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
+        self.productImage = (info.values.first as! UIImage?)!
+        self.dismiss(animated: true, completion: nil);
+        
+        // Set the chosen image as the background
+        self.cameraButton.setBackgroundImage(self.productImage, for: UIControlState.normal)
+        //performSegue(withIdentifier: "createStudentSegue", sender: nil)
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
