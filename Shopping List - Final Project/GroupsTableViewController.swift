@@ -108,7 +108,7 @@ class GroupsTableViewController: UIViewController, UITableViewDataSource, UITabl
                 self.groupsTableView.reloadData()
             }
         }
-        else if let newGroupVc = segue.source as? JoinGroupViewController{
+        else if let joinGroupVc = segue.source as? JoinGroupViewController{
             // TODO:
             // Add the exiting group code
         }

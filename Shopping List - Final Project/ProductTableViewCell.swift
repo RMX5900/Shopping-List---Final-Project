@@ -25,8 +25,23 @@ class ProductTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        
+        // SET background image to each cell
+        self.backgroundView = UIImageView(image: #imageLiteral(resourceName: "greyBackgroundImage"))
+        
+        
+
+        // IF the user did not put an image - put the default one
+        if self.productImageView.image == nil{
+            self.productImageView.image = #imageLiteral(resourceName: "defaultProductImage")
+        }
+        
+        // Change the picture to a circle one
+        self.productImageView.layer.cornerRadius = self.productImageView.frame.size.width / 2
+        self.productImageView.clipsToBounds = true
 
         // Configure the view for the selected state
+        
     }
 
 }

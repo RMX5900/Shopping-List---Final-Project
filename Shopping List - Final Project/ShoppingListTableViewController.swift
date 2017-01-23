@@ -10,11 +10,15 @@ import UIKit
 
 class ShoppingListTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    var selectedIndex:Int?
+    
     var group:Group = Group(mails: [], name: "", list: [])
     
     var isOnEditMode:Bool = false
     
     var shoppingList:[Product] = []
+    
+    var currProduct:Product?
     
     @IBOutlet weak var navigationBar: UINavigationItem!
 
@@ -26,6 +30,8 @@ class ShoppingListTableViewController: UIViewController, UITableViewDataSource, 
         super.viewDidLoad()
         
         self.navigationBar.title = group.groupName + " List"
+        
+        self.productsTableView.backgroundView = UIImageView(image: #imageLiteral(resourceName: "greyBackgroundImage"))
 
         // Do any additional setup after loading the view.
     }
@@ -62,7 +68,7 @@ class ShoppingListTableViewController: UIViewController, UITableViewDataSource, 
         
         let productCell = rowCell as! ProductTableViewCell
         productCell.productNameLabel.text = self.shoppingList[indexPath.row].productName
-        productCell.productCompanyLabel.text = self.shoppingList[indexPath.row].productCompany
+        productCell.productCompanyLabel.text = "by " + self.shoppingList[indexPath.row].productCompany
         productCell.productQuantityLabel.text = String(self.shoppingList[indexPath.row].productQuantity)
         productCell.productImageView.image = self.shoppingList[indexPath.row].productImage
         
@@ -72,10 +78,15 @@ class ShoppingListTableViewController: UIViewController, UITableViewDataSource, 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
         // Set the selected index
-        //selectedIndex = indexPath.row
+        self.selectedIndex = indexPath.row
         
-        // Perform segue to the student details window
-        //self.performSegue(withIdentifier: "presentSegueDetails", sender: self)
+        if (isOnEditMode){
+            
+            currProduct = shoppingList[selectedIndex!]
+        
+            // Perform segue to the student details window
+            self.performSegue(withIdentifier: "editProductSegue", sender: self)
+        }
 
     }
     
@@ -88,11 +99,11 @@ class ShoppingListTableViewController: UIViewController, UITableViewDataSource, 
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //if let stDetailsVc = segue.destination as? StudentDetailsViewController{
+        if let editVc = segue.destination as? EditProductViewController{
             
-            // Pass the student details
-            //stDetailsVc.student = self.studentsList[self.selectedIndex!]
-        //}
+            // Pass the product details
+            editVc.product = currProduct!
+        }
     }
     
     // The unwind segue from new product
@@ -100,7 +111,7 @@ class ShoppingListTableViewController: UIViewController, UITableViewDataSource, 
         if let newProductVc = segue.source as? AddNewProductViewController{
             if (segue.identifier == "addNewProductUnwindSegue"){
                 // Create a new product by the details
-                let newProduct:Product = Product(name: newProductVc.productNameLabel.text!, company: newProductVc.productCompanyLabel.text!,quantity:Int(newProductVc.productQuantityLabel.text!)!, image: newProductVc.productImage)
+                let newProduct:Product = Product(name: newProductVc.productNameTextField.text!, company: newProductVc.productCompanyTextField.text!,quantity:Int(newProductVc.productQuantityTextField.text!)!, image: newProductVc.productImage)
                 
                 // Adding the item to the list
                 self.shoppingList.append(newProduct)
@@ -111,7 +122,21 @@ class ShoppingListTableViewController: UIViewController, UITableViewDataSource, 
                 // Refresh data
                 self.productsTableView.reloadData()
             }
-            
+        }
+        if let editProductVc = segue.source as? EditProductViewController{
+            if (segue.identifier == "editProductUnwindSegue"){
+                // Update the product
+                self.shoppingList[selectedIndex!] = editProductVc.product
+                
+                // Upadte the group
+                self.group.shoppingList = self.shoppingList
+                
+                // Refresh data
+                self.productsTableView.reloadData()
+            }
+        }
+
+        
             // Create a new student by the details
             //let newStud:Student = Student(fName: newStudentVc.firstNameText.text!, lName: newStudentVc.lastNameText.text!, stID: newStudentVc.studentIdText.text!, phoneNum: newStudentVc.phoneText.text!)
             
@@ -123,4 +148,4 @@ class ShoppingListTableViewController: UIViewController, UITableViewDataSource, 
         }
     }
 
-}
+

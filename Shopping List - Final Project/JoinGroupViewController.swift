@@ -10,15 +10,29 @@ import UIKit
 
 class JoinGroupViewController: UIViewController {
 
+    @IBOutlet weak var groupNameTextField: UITextField!
+    @IBOutlet weak var joinButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.groupNameTextField.addTarget(self, action: #selector(groupNameDidChange(textField:)), for: .editingChanged)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // Called when the group name text changes
+    func groupNameDidChange(textField:UITextField){
+        // SET to false
+        self.joinButton.isEnabled = false
+        
+        // IF not empty - enable
+        if (self.groupNameTextField.text! != ""){
+            self.joinButton.isEnabled = true
+        }
     }
     
 

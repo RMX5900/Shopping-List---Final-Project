@@ -1,23 +1,28 @@
 //
-//  AddNewProductViewController.swift
+//  EditProductViewController.swift
 //  Shopping List - Final Project
 //
-//  Created by admin on 13/01/2017.
+//  Created by admin on 20/01/2017.
 //  Copyright © 2017 Gal Levy & Ben Mamia. All rights reserved.
 //
 
 import UIKit
 
-class AddNewProductViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EditProductViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
     @IBOutlet weak var productNameTextField: UITextField!
-    @IBOutlet weak var productQuantityTextField: UITextField!
-    @IBOutlet weak var productCompanyTextField: UITextField!
+    
+    @IBOutlet weak var companyTextField: UITextField!
+    
+    @IBOutlet weak var quantityTextField: UITextField!
+    
+    @IBOutlet weak var saveButton: UIButton!
     
     @IBOutlet weak var cameraButton: UIButton!
     
-    @IBOutlet weak var addButton: UIButton!
+    var product:Product = Product(name: "", company: "", quantity: 0, image: nil)
     
-    var productImage:UIImage = #imageLiteral(resourceName: "defaultProductImage")
+    var productImage:UIImage?
     
     @IBAction func cameraButtonClicked(_ sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
@@ -35,26 +40,40 @@ class AddNewProductViewController: UIViewController, UIImagePickerControllerDele
         
         // Set the chosen image as the background
         self.cameraButton.setBackgroundImage(self.productImage, for: UIControlState.normal)
-        //performSegue(withIdentifier: "addNewProductSegue", sender: nil)
-        
     }
-
+    
+    @IBOutlet weak var imageButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.productNameTextField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
-        self.productCompanyTextField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
-        self.productQuantityTextField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
+        self.companyTextField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
+        self.quantityTextField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
+        
+        // Set the values t the text fields
+        self.productNameTextField.text = product.productName
+        self.companyTextField.text = product.productCompany
+        self.quantityTextField.text = String(product.productQuantity)
+        
+        // Set the chosen image as the background
+        self.cameraButton.setBackgroundImage(product.productImage, for: UIControlState.normal)
+
+        // Do any additional setup after loading the view.
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     // Called when the group name text changes
     func textFieldDidChange(textField:UITextField){
         // SET to false
-        self.addButton.isEnabled = false
+        self.saveButton.isEnabled = false
         
         // IF not empty - enable
-        if (self.productNameTextField.text! != "" && self.productCompanyTextField.text! != "" && self.checkIfNumber(num: self.productQuantityTextField.text!)){
-            self.addButton.isEnabled = true
+        if (self.productNameTextField.text! != "" && self.companyTextField.text! != "" && self.checkIfNumber(num: self.quantityTextField.text!)){
+            self.saveButton.isEnabled = true
         }
     }
     
@@ -66,21 +85,16 @@ class AddNewProductViewController: UIViewController, UIImagePickerControllerDele
         }
         return false
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        // Update the product
+        self.product = Product(name: productNameTextField.text!, company: companyTextField.text!, quantity: Int(quantityTextField.text!)!, image: productImage)
     }
-    */
+    
 
 }
