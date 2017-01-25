@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
 
@@ -17,6 +18,14 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let user :FIRUser? = FIRAuth.auth()?.currentUser
+        print(user!.email!)
+        
+        if (user != nil) {
+          self.performSegue(withIdentifier: "presentLoggedInSegue", sender: self)
+        } else{
+            //show credentials wrong alert
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -25,8 +34,9 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
+    
+    
     /*
     // MARK: - Navigation
 
