@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class RegisterViewController: UIViewController {
     
@@ -33,6 +34,16 @@ class RegisterViewController: UIViewController {
         passTextField.text = ""
         emailTextField.text = ""
     }
+//    @IBAction func clearFieldsClicked2(_ sender: UIButton) {
+//        let email = "dfdfd@dsds.com"
+//        let pass = "123456"
+//        FIRAuth.auth()?.createUser(withEmail: email, password: pass ) { (user, error) in
+//print ("Error signing out: %@", error)
+//            
+//        }
+//    }
+    
+    
     
     
 
