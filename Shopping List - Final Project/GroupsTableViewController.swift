@@ -53,6 +53,18 @@ class GroupsTableViewController: UIViewController, UITableViewDataSource, UITabl
         
         let groupCell = cell as! GroupTableViewCell
         groupCell.groupNameLabel.text = self.groupList[indexPath.row].groupName
+        groupCell.groupImageView.image = self.groupList[indexPath.row].groupImage
+        var mailUsersStringed:String = ""
+        
+        
+        for mail in self.groupList[indexPath.row].mailList {
+            if (mailUsersStringed != ""){
+                mailUsersStringed += ", "
+            }
+            mailUsersStringed += mail.components(separatedBy: "@")[0]
+        }
+        
+        groupCell.mailsListLabel.text = mailUsersStringed
 
         return groupCell
     }
@@ -102,7 +114,7 @@ class GroupsTableViewController: UIViewController, UITableViewDataSource, UITabl
             
             if (segue.identifier! == "unwindSegueCreateGroup"){
                 // Create a new group and add it
-                self.groupList.append(Group(mails: newGroupVc.emailsList, name: newGroupVc.groupNameTextField.text!,list:[]))
+                self.groupList.append(Group(mails: newGroupVc.emailsList, name: newGroupVc.groupNameTextField.text!,list:[], image: newGroupVc.groupImage))
 
                 // Refresh the tableview
                 self.groupsTableView.reloadData()

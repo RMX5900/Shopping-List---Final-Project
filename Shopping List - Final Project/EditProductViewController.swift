@@ -57,6 +57,8 @@ class EditProductViewController: UIViewController, UIImagePickerControllerDelega
         
         // Set the chosen image as the background
         self.cameraButton.setBackgroundImage(product.productImage, for: UIControlState.normal)
+        
+        self.productImage = product.productImage
 
         // Do any additional setup after loading the view.
     }

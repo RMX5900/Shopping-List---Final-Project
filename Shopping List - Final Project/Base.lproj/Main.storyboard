@@ -168,7 +168,7 @@
                                         <rect key="frame" x="0.0" y="28" width="337" height="35"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ixu-G5-x13" id="5Tb-9g-sZL">
-                                            <frame key="frameInset" width="337" height="35"/>
+                                            <frame key="frameInset" width="337" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGp-tC-fc9" userLabel="mailLabel">
@@ -191,7 +191,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1bb-kq-W4f">
-                                <frame key="frameInset" minX="130" minY="438" width="114" height="43"/>
+                                <frame key="frameInset" minX="130" minY="567" width="114" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.34118339527075692" green="0.62037679613109309" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
@@ -215,6 +215,21 @@
                                     <action selector="addParticClicked:" destination="m0P-cv-o2u" eventType="touchUpInside" id="Cv5-jk-Mdf"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="2UY-Da-tHD">
+                                <frame key="frameInset" minX="128" minY="430" width="119" height="119"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.4485204815864563" green="0.97284168004989624" blue="0.91361111402511597" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" backgroundImage="cameraIcon"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="57"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="cameraButtonClicked:" destination="da2-m0-WZm" eventType="touchUpInside" id="j2s-PU-ehw"/>
+                                    <action selector="cameraButtonClicked:" destination="m0P-cv-o2u" eventType="touchUpInside" id="nlY-LP-b0d"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -222,6 +237,7 @@
                     <toolbarItems/>
                     <connections>
                         <outlet property="addMailButton" destination="Cee-GM-wPm" id="uYP-Pl-L7W"/>
+                        <outlet property="cameraButton" destination="2UY-Da-tHD" id="ikv-7f-DyL"/>
                         <outlet property="createButton" destination="1bb-kq-W4f" id="4vn-qg-ARW"/>
                         <outlet property="groupNameTextField" destination="OeQ-j6-1rb" id="9d0-SC-7b7"/>
                         <outlet property="invitedEmailTableView" destination="IHG-6B-sNa" id="uUk-hP-3yw"/>
@@ -372,9 +388,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" clipsSubviews="YES" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="gjv-Hb-0K6">
-                                <frame key="frameInset" minX="120" minY="266" width="135" height="135"/>
+                                <frame key="frameInset" minX="120" minY="266" width="119" height="119"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="cameraIcon" backgroundImage="greyBackgroundImage"/>
+                                <color key="backgroundColor" red="0.4485204815864563" green="0.97284168004989624" blue="0.91361111402511597" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" backgroundImage="cameraIcon"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <integer key="value" value="57"/>
@@ -495,22 +512,30 @@
                                             <frame key="frameInset" width="375" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9t-th-oGz">
-                                                    <frame key="frameInset" minX="106" minY="48" width="162" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9t-th-oGz">
+                                                    <frame key="frameInset" minX="87" minY="47" width="162" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.67093084859999996" green="0.75408679249999999" blue="0.71291370600000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iCq-iK-iIL">
-                                                    <frame key="frameInset" minX="108" minY="19" width="159" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ex-s1-yVM">
+                                                    <frame key="frameInset" minX="289" minY="34" width="59" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="textColor" red="0.67093084856099128" green="0.75408679246902466" blue="0.71291370603962345" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iCq-iK-iIL">
+                                                    <frame key="frameInset" minX="87" minY="18" width="159" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                                     <color key="textColor" red="0.67093084859999996" green="0.75408679249999999" blue="0.71291370600000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultProductImage" translatesAutoresizingMaskIntoConstraints="NO" id="DJv-nX-loZ" userLabel="productImage">
-                                                    <frame key="frameInset" minX="15" minY="12" width="64" height="64"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="deW-dX-fQ0">
+                                                    <frame key="frameInset" minX="8" minY="10" width="64" height="64"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -518,18 +543,11 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ex-s1-yVM">
-                                                    <frame key="frameInset" minX="289" minY="34" width="59" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <color key="textColor" red="0.67093084856099128" green="0.75408679246902466" blue="0.71291370603962345" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="productCompanyLabel" destination="a9t-th-oGz" id="7WI-aP-gHe"/>
-                                            <outlet property="productImageView" destination="DJv-nX-loZ" id="uXL-tc-5L4"/>
+                                            <outlet property="productImageView" destination="deW-dX-fQ0" id="kQK-cZ-uPV"/>
                                             <outlet property="productNameLabel" destination="iCq-iK-iIL" id="tT0-Ug-Dg9"/>
                                             <outlet property="productQuantityLabel" destination="8Ex-s1-yVM" id="fRc-ts-fyz"/>
                                         </connections>
@@ -593,8 +611,24 @@
                                             <frame key="frameInset" width="375" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zp8-3y-msO">
-                                                    <frame key="frameInset" minX="108" minY="25" width="159" height="33"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultProductImage" translatesAutoresizingMaskIntoConstraints="NO" id="DJv-nX-loZ" userLabel="productImage">
+                                                    <frame key="frameInset" minX="8" minY="10" width="64" height="64"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <integer key="value" value="30"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jfc-lO-dL9">
+                                                    <frame key="frameInset" minX="80" minY="51" width="287" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zp8-3y-msO">
+                                                    <frame key="frameInset" minX="80" minY="10" width="287" height="33"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                                     <nil key="textColor"/>
@@ -603,7 +637,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="groupImageView" destination="DJv-nX-loZ" id="if9-oC-7WF"/>
                                             <outlet property="groupNameLabel" destination="Zp8-3y-msO" id="ThB-Vx-4tC"/>
+                                            <outlet property="mailsListLabel" destination="Jfc-lO-dL9" id="C5W-mK-sbc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -644,7 +680,6 @@
     <resources>
         <image name="cameraIcon" width="128" height="128"/>
         <image name="defaultProductImage" width="350" height="350"/>
-        <image name="greyBackgroundImage" width="480" height="480"/>
         <image name="joinGroupIcon" width="32" height="32"/>
         <image name="newGroupIcon" width="32" height="32"/>
         <image name="studentIcon" width="32" height="32"/>

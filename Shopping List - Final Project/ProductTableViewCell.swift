@@ -29,12 +29,11 @@ class ProductTableViewCell: UITableViewCell {
         // SET background image to each cell
         self.backgroundView = UIImageView(image: #imageLiteral(resourceName: "greyBackgroundImage"))
         
-        
 
         // IF the user did not put an image - put the default one
-        if self.productImageView.image == nil{
-            self.productImageView.image = #imageLiteral(resourceName: "defaultProductImage")
-        }
+        //if self.productImageView.image == nil{
+            //self.productImageView.image = //
+        //}
         
         // Change the picture to a circle one
         self.productImageView.layer.cornerRadius = self.productImageView.frame.size.width / 2

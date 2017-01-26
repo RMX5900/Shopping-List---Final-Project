@@ -12,7 +12,7 @@ class ShoppingListTableViewController: UIViewController, UITableViewDataSource, 
     
     var selectedIndex:Int?
     
-    var group:Group = Group(mails: [], name: "", list: [])
+    var group:Group = Group(mails: [], name: "", list: [], image: #imageLiteral(resourceName: "defaultProductImage"))
     
     var isOnEditMode:Bool = false
     

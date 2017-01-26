@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateNewGroupViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class CreateNewGroupViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     @IBOutlet weak var createButton: UIButton!
     
@@ -20,7 +20,31 @@ class CreateNewGroupViewController: UIViewController, UITableViewDataSource, UIT
     
     @IBOutlet weak var addMailButton: UIButton!
     
+    @IBOutlet weak var cameraButton: UIButton!
+    
     var emailsList:[String] = []
+    
+    var groupImage:UIImage = #imageLiteral(resourceName: "defaultGroupImage")
+    
+    @IBAction func cameraButtonClicked(_ sender: UIButton) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary;
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
+        self.groupImage = (info.values.first as! UIImage?)!
+        self.dismiss(animated: true, completion: nil);
+        
+        // Set the chosen image as the background
+        self.cameraButton.setBackgroundImage(self.groupImage, for: UIControlState.normal)
+        //performSegue(withIdentifier: "addNewProductSegue", sender: nil)
+        
+    }
     
     @IBAction func addParticClicked(_ sender: UIButton) {
         

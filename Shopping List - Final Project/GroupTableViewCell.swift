@@ -11,6 +11,8 @@ import UIKit
 class GroupTableViewCell: UITableViewCell {
     
     @IBOutlet weak var groupNameLabel: UILabel!
+    @IBOutlet weak var groupImageView: UIImageView!
+    @IBOutlet weak var mailsListLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,6 +23,10 @@ class GroupTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        
+        // Change the picture to a circle one
+        self.groupImageView.layer.cornerRadius = self.groupImageView.frame.size.width / 2
+        self.groupImageView.clipsToBounds = true
     }
 
 }
