@@ -32,6 +32,8 @@ class GroupsTableViewController: UIViewController, UITableViewDataSource, UITabl
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.groupsTableView.backgroundView = UIImageView(image: #imageLiteral(resourceName: "greyBackgroundImage"))
 
     }
 
