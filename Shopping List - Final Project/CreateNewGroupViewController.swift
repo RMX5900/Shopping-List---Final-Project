@@ -88,6 +88,8 @@ class CreateNewGroupViewController: UIViewController, UITableViewDataSource, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "wallpaper"))
+        
         self.particEmailTextField.addTarget(self, action: #selector(mailTextFieldDidChange(textField:)), for: .editingChanged)
         
         self.groupNameTextField.addTarget(self, action: #selector(groupNameDidChange(textField:)), for: .editingChanged)

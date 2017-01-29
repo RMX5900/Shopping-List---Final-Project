@@ -42,6 +42,8 @@ class AddNewProductViewController: UIViewController, UIImagePickerControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "wallpaper"))
+        
         self.productNameTextField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
         self.productCompanyTextField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
         self.productQuantityTextField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)

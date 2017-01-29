@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class GroupsTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -29,26 +30,28 @@ class GroupsTableViewController: UIViewController, UITableViewDataSource, UITabl
             self.groupsTableView.setEditing(false, animated: true)
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.groupsTableView.backgroundView = UIImageView(image: #imageLiteral(resourceName: "greyBackgroundImage"))
-
+        Model.instance.getGroupsByUserId(userId: (FIRAuth.auth()?.currentUser!.uid)!, callback: { (groups) in
+            self.groupList = groups
+            self.groupsTableView.backgroundView = UIImageView(image: #imageLiteral(resourceName: "wallpaper"))
+            self.groupsTableView.reloadData()
+        })
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
-
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return self.groupList.count
     }
-
+    
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath)
@@ -67,7 +70,7 @@ class GroupsTableViewController: UIViewController, UITableViewDataSource, UITabl
         }
         
         groupCell.mailsListLabel.text = mailUsersStringed
-
+        
         return groupCell
     }
     
@@ -85,7 +88,7 @@ class GroupsTableViewController: UIViewController, UITableViewDataSource, UITabl
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let shopListVc = segue.destination as? ShoppingListTableViewController{
             
-            // Pass the group   
+            // Pass the group
             shopListVc.group = self.groupList[self.selectedIndex!]
             
             // Pass the student details
@@ -101,14 +104,14 @@ class GroupsTableViewController: UIViewController, UITableViewDataSource, UITabl
         self.groupsTableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     // The unwind segue from new product
     @IBAction func unwindToGroupsTableViewController(segue: UIStoryboardSegue){
@@ -116,8 +119,8 @@ class GroupsTableViewController: UIViewController, UITableViewDataSource, UITabl
             
             if (segue.identifier! == "unwindSegueCreateGroup"){
                 // Create a new group and add it
-                self.groupList.append(Group(mails: newGroupVc.emailsList, name: newGroupVc.groupNameTextField.text!,list:[], image: newGroupVc.groupImage))
-
+                self.groupList.append(Group(mails: newGroupVc.emailsList, name: newGroupVc.groupNameTextField.text!,list:[], groupId:""/*, image: newGroupVc.groupImage*/))
+                Model.instance.addGroup(group: Group(mails: newGroupVc.emailsList, name: newGroupVc.groupNameTextField.text!,list:[], groupId:""/*, image: newGroupVc.groupImage)*/))
                 // Refresh the tableview
                 self.groupsTableView.reloadData()
             }
@@ -125,7 +128,8 @@ class GroupsTableViewController: UIViewController, UITableViewDataSource, UITabl
         else if let joinGroupVc = segue.source as? JoinGroupViewController{
             // TODO:
             // Add the exiting group code
+            Model.instance.addUserToGroup(userId: (FIRAuth.auth()?.currentUser?.uid)!, groupId: joinGroupVc.groupNameTextField.text!)
         }
     }
-
+    
 }

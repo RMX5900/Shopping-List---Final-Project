@@ -15,6 +15,8 @@ class JoinGroupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "wallpaper"))
 
         self.groupNameTextField.addTarget(self, action: #selector(groupNameDidChange(textField:)), for: .editingChanged)
     }

@@ -27,7 +27,7 @@ class ProductTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         
         // SET background image to each cell
-        self.backgroundView = UIImageView(image: #imageLiteral(resourceName: "greyBackgroundImage"))
+        //self.backgroundView = UIImageView(image: #imageLiteral(resourceName: "greyBackgroundImage"))
         
 
         // IF the user did not put an image - put the default one

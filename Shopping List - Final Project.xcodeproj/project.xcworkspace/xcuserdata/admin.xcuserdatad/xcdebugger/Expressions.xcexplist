@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "ProductTableViewCell.setSelected(Bool, animated : Bool) -&gt; ():ProductTableViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.productQuantityLabel.layer.cornerRadius">
+            </PersistentString>
+            <PersistentString
+               value = "self.productImageView">
+            </PersistentString>
+            <PersistentString
+               value = "self.productQuantityLabel.bounds.size.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ShoppingListTableViewController.onEditListClick(UIBarButtonItem) -&gt; ():ShoppingListTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.editBarButton.title">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "EditProductViewController.saveButtonClicked(UIButton) -&gt; ():EditProductViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "productNameTextField.text!">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GroupsTableViewController.prepare(for : UIStoryboardSegue, sender : Any?) -&gt; ():GroupsTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.groupList[self.selectedIndex!].shoppingList&#10;">
+            </PersistentString>
+            <PersistentString
+               value = "self.groupList[self.selectedIndex!].shoppingList&#10;self.groupList[self.selectedIndex!].shoppingList&#10;">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

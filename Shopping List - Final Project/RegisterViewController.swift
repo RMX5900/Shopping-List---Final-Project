@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class RegisterViewController: UIViewController {
     
@@ -17,6 +18,8 @@ class RegisterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "wallpaper"))
 
         // Do any additional setup after loading the view.
     }
@@ -34,6 +37,25 @@ class RegisterViewController: UIViewController {
         emailTextField.text = ""
     }
     
+    @IBAction func onRegister(_ sender: Any) {
+        FIRAuth.auth()?.createUser(withEmail: emailTextField.text!, password: passTextField.text! ) { (user, error) in
+            if(error != nil){
+                print ("Error signing out: %@", error!)
+            }
+            
+            if(user != nil){
+                print ("user created: %@", user!)
+                let newUser = User.init(userId: (user?.uid)!, firstName: self.nameTextField.text!, lastName: "", email: self.emailTextField.text!)
+                Model.instance.addUser(user: newUser)
+                FIRAuth.auth()?.signIn(withEmail: self.emailTextField.text!, password: self.passTextField.text!) { (user, error) in
+                    //redirect user to main view (My Groups)
+                    
+                    
+                    self.performSegue(withIdentifier: "presentRegisteredInSegue", sender: self)
+                }
+            }
+        }
+    }
     
 
     /*

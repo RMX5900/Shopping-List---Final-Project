@@ -20,7 +20,7 @@ class EditProductViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBOutlet weak var cameraButton: UIButton!
     
-    var product:Product = Product(name: "", company: "", quantity: 0, image: nil)
+    var product:Product = Product(name: "", company: "", quantity: 0, image: nil,addedByUserId:"", addedDate:"")
     
     var productImage:UIImage?
     
@@ -95,7 +95,7 @@ class EditProductViewController: UIViewController, UIImagePickerControllerDelega
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Update the product
-        self.product = Product(name: productNameTextField.text!, company: companyTextField.text!, quantity: Int(quantityTextField.text!)!, image: productImage)
+        self.product = Product(name: productNameTextField.text!, company: companyTextField.text!, quantity: Int(quantityTextField.text!)!, image: productImage, addedByUserId: "pre", addedDate: "preDate")
     }
     
 

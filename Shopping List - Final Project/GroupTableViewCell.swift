@@ -25,7 +25,7 @@ class GroupTableViewCell: UITableViewCell {
         // Configure the view for the selected state
         
         // SET background image to each cell
-        self.backgroundView = UIImageView(image: #imageLiteral(resourceName: "greyBackgroundImage"))
+        //self.backgroundView = UIImageView(image: #imageLiteral(resourceName: "greyBackgroundImage"))
         
         // Change the picture to a circle one
         self.groupImageView.layer.cornerRadius = self.groupImageView.frame.size.width / 2

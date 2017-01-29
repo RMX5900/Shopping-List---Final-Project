@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 class ShoppingListTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var selectedIndex:Int?
     
-    var group:Group = Group(mails: [], name: "", list: [], image: #imageLiteral(resourceName: "defaultProductImage"))
+    var group:Group = Group(mails: [], name: "", list: [], groupId: " "/*, image: #imageLiteral(resourceName: "defaultProductImage")*/)
     
     var isOnEditMode:Bool = false
     
@@ -31,7 +32,7 @@ class ShoppingListTableViewController: UIViewController, UITableViewDataSource, 
         
         self.navigationBar.title = group.groupName + " List"
         
-        self.productsTableView.backgroundView = UIImageView(image: #imageLiteral(resourceName: "greyBackgroundImage"))
+        self.productsTableView.backgroundView = UIImageView(image: #imageLiteral(resourceName: "wallpaper"))
 
         // Do any additional setup after loading the view.
     }
@@ -110,11 +111,18 @@ class ShoppingListTableViewController: UIViewController, UITableViewDataSource, 
     @IBAction func unwindToShoppingListTableViewController(segue: UIStoryboardSegue){
         if let newProductVc = segue.source as? AddNewProductViewController{
             if (segue.identifier == "addNewProductUnwindSegue"){
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "EEE, dd MMM yyyy hh:mm"
+                //dateFormatter.locale = Locale.init(identifier: "en_GB")
+                let dateString = dateFormatter.string(from: Date())
                 // Create a new product by the details
-                let newProduct:Product = Product(name: newProductVc.productNameTextField.text!, company: newProductVc.productCompanyTextField.text!,quantity:Int(newProductVc.productQuantityTextField.text!)!, image: newProductVc.productImage)
-                
+                let newProduct:Product = Product(name: newProductVc.productNameTextField.text!, company: newProductVc.productCompanyTextField.text!,quantity:Int(newProductVc.productQuantityTextField.text!)!, image: newProductVc.productImage,addedByUserId:FIRAuth.auth()!.currentUser!.uid, addedDate:dateString)
+                Model.instance.addProduct(product: newProduct, groupId: self.group.groupId)
                 // Adding the item to the list
-                self.shoppingList.append(newProduct)
+                
+                //self.shoppingList.append(newProduct)
+                
+                //addi
                 
                 // Upadte the group
                 self.group.shoppingList = self.shoppingList
