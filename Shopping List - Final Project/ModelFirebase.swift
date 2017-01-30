@@ -66,7 +66,7 @@ class ModelFirebase{
                                                company: value?["company"] as? String ?? "",
                                                quantity: value?["quantity"] as? Int ?? 0, image: nil, addedByUserId:value?["addedByUserId"] as? String ?? "", addedDate: value?["addedDate"] as? String ?? ""
                     )
-                    //set product id here
+                    //set product id here - Ben
                     self.getUserById(userId: product.addedByUserId, callback: { (user) in
                         product.addedByUser = user
                         products.append(product)
@@ -118,13 +118,38 @@ class ModelFirebase{
             refGroups.queryOrderedByKey().queryStarting(atValue: groupIds[0]).queryEnding(atValue: groupIds[groupIds.count-1]).observeSingleEvent(of: .value, with: {(snapshot) in
                 for child in snapshot.children.allObjects{
                     if let childData = child as? FIRDataSnapshot{
-                        if let json = childData.value as? Dictionary<String,String>{
-                            let group = Group.init(mails: [String](), name: json["groupName"]!, list: [Product](),groupId: childData.key)
+                        print(childData)
+                        if let json = childData.value as? Dictionary<String,NSObject>{
+                            let group = Group.init(mails: [String](), name: json["groupName"]! as! String, list: [Product](),groupId: childData.key)
+                            //get here group products - Ben
+                            print(json)
+                            let productsSnapshot = childData.childSnapshot(forPath: "products")
+                            for productSnapshot in productsSnapshot.children.allObjects {
+                                let product  = productSnapshot as? FIRDataSnapshot
+                                let productJson = product?.value as? Dictionary<String,String>
+                                let productObj = Product.init(
+                                                              name: ((productJson? ["productName"])! as? String)!,
+                                                              company: ((productJson?["productCompany"])! as? String)!,
+                                                              quantity: 4/*productJson?["quantity"]! as! Int!*/,
+                                                              image: nil,
+                                                              addedByUserId: productJson?["addedByUserId"]! as! String!,
+                                                              addedDate: productJson?["addedDate"]! as! String!)
+                                self.getUserById(userId: productObj.addedByUserId, callback: { (user) in
+                                    productObj.addedByUser = user
+                                    group.shoppingList.append(productObj)
+                                    if(group.shoppingList.count == Int(productsSnapshot.childrenCount)){
+                                        callback(groups)
+                                    }
+                                })
+                                
+                                print(productJson)
+                            }
                             groups.append(group)
+                            callback(groups)
                         }
                     }
                 }
-                callback(groups)
+                
             })
             
             // callback(st)

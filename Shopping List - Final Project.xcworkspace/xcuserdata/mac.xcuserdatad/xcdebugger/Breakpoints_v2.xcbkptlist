@@ -314,7 +314,7 @@
                   moduleName = "Shopping List - Final Project"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Downloads/ShoppingListFinalProject/Shopping%20List%20-%20Final%20Project/ModelFirebase.swift"
-                  timestampString = "507419738.293543"
+                  timestampString = "507505153.773616"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "70"
@@ -329,7 +329,7 @@
                   moduleName = "Shopping List - Final Project"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Downloads/ShoppingListFinalProject/Shopping%20List%20-%20Final%20Project/ModelFirebase.swift"
-                  timestampString = "507419738.297122"
+                  timestampString = "507505153.777066"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "61"
@@ -362,7 +362,7 @@
                   moduleName = "Shopping List - Final Project"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Downloads/ShoppingListFinalProject/Shopping%20List%20-%20Final%20Project/RegisterViewController.swift"
-                  timestampString = "507419738.309391"
+                  timestampString = "507505153.788311"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "48"
@@ -377,7 +377,7 @@
                   moduleName = "Shopping List - Final Project"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Downloads/ShoppingListFinalProject/Shopping%20List%20-%20Final%20Project/RegisterViewController.swift"
-                  timestampString = "507419738.315395"
+                  timestampString = "507505153.797937"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "48"
@@ -410,7 +410,7 @@
                   moduleName = "Shopping List - Final Project"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Downloads/ShoppingListFinalProject/Shopping%20List%20-%20Final%20Project/RegisterViewController.swift"
-                  timestampString = "507419738.331341"
+                  timestampString = "507505153.82364"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "41"
@@ -425,7 +425,7 @@
                   moduleName = "Shopping List - Final Project"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Downloads/ShoppingListFinalProject/Shopping%20List%20-%20Final%20Project/RegisterViewController.swift"
-                  timestampString = "507419738.337568"
+                  timestampString = "507505153.829968"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "42"
@@ -458,22 +458,37 @@
                   moduleName = "Shopping List - Final Project"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Downloads/ShoppingListFinalProject/Shopping%20List%20-%20Final%20Project/ModelFirebase.swift"
-                  timestampString = "507414102.816364"
+                  timestampString = "507500669.910548"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "99"
                   endingLineNumber = "99"
-                  offsetFromSymbolStart = "121">
+                  offsetFromSymbolStart = "112">
                </Location>
                <Location
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Shopping_List___Final_Project.ModelFirebase.(getGroupsByUserId (userId : Swift.String, callback : (Swift.Array&lt;Shopping_List___Final_Project.Group&gt;) -&gt; ()) -&gt; ()).(closure #2)"
+                  symbolName = "Shopping_List___Final_Project.ModelFirebase.(getGroupsByUserId (userId : Swift.String, callback : (Swift.Array&lt;Shopping_List___Final_Project.Group&gt;) -&gt; ()) -&gt; ()).(closure #1)"
                   moduleName = "Shopping List - Final Project"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Downloads/ShoppingListFinalProject/Shopping%20List%20-%20Final%20Project/ModelFirebase.swift"
-                  timestampString = "507414102.821432"
+                  timestampString = "507500669.914089"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Shopping_List___Final_Project.ModelFirebase.(getGroupsByUserId (userId : Swift.String, callback : (Swift.Array&lt;Shopping_List___Final_Project.Group&gt;) -&gt; ()) -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "Shopping List - Final Project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Downloads/ShoppingListFinalProject/Shopping%20List%20-%20Final%20Project/ModelFirebase.swift"
+                  timestampString = "507500669.917385"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "99"
@@ -810,7 +825,7 @@
                   moduleName = "Shopping List - Final Project"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Downloads/ShoppingListFinalProject/Shopping%20List%20-%20Final%20Project/GroupsTableViewController.swift"
-                  timestampString = "507419738.440218"
+                  timestampString = "507505153.894329"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "132"
@@ -825,7 +840,7 @@
                   moduleName = "Shopping List - Final Project"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Downloads/ShoppingListFinalProject/Shopping%20List%20-%20Final%20Project/GroupsTableViewController.swift"
-                  timestampString = "507419738.445536"
+                  timestampString = "507505153.898313"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "132"
@@ -874,11 +889,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Shopping List - Final Project/ModelFirebase.swift"
-            timestampString = "507415159.764424"
+            timestampString = "507505152.149049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "getGroupsByUserId(userId:callback:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -922,11 +937,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Shopping List - Final Project/ModelFirebase.swift"
-            timestampString = "507415421.135002"
+            timestampString = "507500668.055941"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "getGroupsByUserId(userId:callback:)"
             landmarkType = "7">
             <Locations>
@@ -938,12 +953,12 @@
                   moduleName = "Shopping List - Final Project"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Downloads/ShoppingListFinalProject/Shopping%20List%20-%20Final%20Project/ModelFirebase.swift"
-                  timestampString = "507415421.162855"
+                  timestampString = "507500670.004775"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "121"
-                  endingLineNumber = "121"
-                  offsetFromSymbolStart = "560">
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "752">
                </Location>
                <Location
                   shouldBeEnabled = "No"
@@ -953,12 +968,12 @@
                   moduleName = "Shopping List - Final Project"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Downloads/ShoppingListFinalProject/Shopping%20List%20-%20Final%20Project/ModelFirebase.swift"
-                  timestampString = "507415421.168795"
+                  timestampString = "507500670.007822"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "121"
-                  endingLineNumber = "121"
-                  offsetFromSymbolStart = "1124">
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "1316">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -970,11 +985,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Shopping List - Final Project/ModelFirebase.swift"
-            timestampString = "507415460.162197"
+            timestampString = "507500668.055941"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
             landmarkName = "getGroupsByUserId(userId:callback:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1072,6 +1087,310 @@
             startingLineNumber = "119"
             endingLineNumber = "119"
             landmarkName = "unwindToShoppingListTableViewController(segue:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shopping List - Final Project/ModelFirebase.swift"
+            timestampString = "507500668.055941"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "getGroupsByUserId(userId:callback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shopping List - Final Project/ModelFirebase.swift"
+            timestampString = "507500345.81089"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "getGroupsByUserId(userId:callback:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Shopping_List___Final_Project.ModelFirebase.(getGroupsByUserId (userId : Swift.String, callback : (Swift.Array&lt;Shopping_List___Final_Project.Group&gt;) -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "Shopping List - Final Project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Downloads/ShoppingListFinalProject/Shopping%20List%20-%20Final%20Project/ModelFirebase.swift"
+                  timestampString = "507500345.819049"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "118"
+                  endingLineNumber = "118"
+                  offsetFromSymbolStart = "898">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Shopping_List___Final_Project.ModelFirebase.(getGroupsByUserId (userId : Swift.String, callback : (Swift.Array&lt;Shopping_List___Final_Project.Group&gt;) -&gt; ()) -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "Shopping List - Final Project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Downloads/ShoppingListFinalProject/Shopping%20List%20-%20Final%20Project/ModelFirebase.swift"
+                  timestampString = "507500345.823486"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "15">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shopping List - Final Project/ModelFirebase.swift"
+            timestampString = "507500349.713464"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "getGroupsByUserId(userId:callback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shopping List - Final Project/ModelFirebase.swift"
+            timestampString = "507500668.055941"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "getGroupsByUserId(userId:callback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shopping List - Final Project/ModelFirebase.swift"
+            timestampString = "507500773.914035"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "getGroupsByUserId(userId:callback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shopping List - Final Project/ModelFirebase.swift"
+            timestampString = "507504640.807824"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "getGroupsByUserId(userId:callback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shopping List - Final Project/ModelFirebase.swift"
+            timestampString = "507504640.807824"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "getGroupsByUserId(userId:callback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shopping List - Final Project/ModelFirebase.swift"
+            timestampString = "507504640.807824"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "getGroupsByUserId(userId:callback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shopping List - Final Project/ModelFirebase.swift"
+            timestampString = "507504640.807824"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "getGroupsByUserId(userId:callback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shopping List - Final Project/ModelFirebase.swift"
+            timestampString = "507504640.807824"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
+            landmarkName = "getGroupsByUserId(userId:callback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shopping List - Final Project/ModelFirebase.swift"
+            timestampString = "507504640.807824"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "getGroupsByUserId(userId:callback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shopping List - Final Project/ModelFirebase.swift"
+            timestampString = "507504605.990369"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "getGroupsByUserId(userId:callback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shopping List - Final Project/ModelFirebase.swift"
+            timestampString = "507504737.188437"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "getGroupsByUserId(userId:callback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shopping List - Final Project/ModelFirebase.swift"
+            timestampString = "507504924.191198"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "getGroupsByUserId(userId:callback:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Shopping_List___Final_Project.ModelFirebase.(getGroupsByUserId (userId : Swift.String, callback : (Swift.Array&lt;Shopping_List___Final_Project.Group&gt;) -&gt; ()) -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "Shopping List - Final Project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Downloads/ShoppingListFinalProject/Shopping%20List%20-%20Final%20Project/ModelFirebase.swift"
+                  timestampString = "507505153.947004"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "6221">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Shopping_List___Final_Project.ModelFirebase.(getGroupsByUserId (userId : Swift.String, callback : (Swift.Array&lt;Shopping_List___Final_Project.Group&gt;) -&gt; ()) -&gt; ()).(closure #1).(closure #1).(closure #1)"
+                  moduleName = "Shopping List - Final Project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Downloads/ShoppingListFinalProject/Shopping%20List%20-%20Final%20Project/ModelFirebase.swift"
+                  timestampString = "507505153.952093"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "39">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shopping List - Final Project/ModelFirebase.swift"
+            timestampString = "507504950.001516"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "getGroupsByUserId(userId:callback:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
