@@ -96,7 +96,6 @@ class ModelFirebase{
                 products[index!] = product
                 callback(products)
             }
-        
         })
         
         groupProductsRef.observe(FIRDataEventType.childRemoved, with: {(snapshot) in
