@@ -98,7 +98,6 @@ class ModelFirebase{
                 products[index!] = product
                 callback(products)
             }
-        
         })
         
         groupProductsRef.observe(FIRDataEventType.childRemoved, with: {(snapshot) in
@@ -124,16 +123,33 @@ class ModelFirebase{
         })
     }
     
+    public func getUserByEmail(email:String, callback:@escaping (User)->Void){
+        let ref = FIRDatabase.database().reference().child("users").queryOrdered(byChild: "email").queryEqual(toValue: email)
+        
+        ref.observe(.childAdded, with: {(snapshot) in
+            let key = snapshot.key;
+            if let json = snapshot.value as? Dictionary<String,NSObject>{
+                
+                let user = User.init(userId: key,
+                                     firstName: json["firstName"]! as! String,
+                                     lastName: json["lastName"]! as! String,
+                                     email: json["email"]! as! String)
+                callback(user)
+            }
+        },
+                                 withCancel: {(snapshot) in
+                                    //error/cancel
+        })
+    }
+    
     func getGroupsByUserId(userId:String, callback:@escaping ([Group])->Void){
         var groups = [Group]()
-        var groupIds = [String]()
-        let ref = FIRDatabase.database().reference().child("users").child(userId).child("registeredGroups")
         let userGroupsRef = FIRDatabase.database().reference().child("users").child(userId).child("registeredGroups")
         let refGroups = FIRDatabase.database().reference().child("groups")
         
         
         userGroupsRef.observe(FIRDataEventType.value, with: {(snapshot) in
-            //check if there are no groups
+            //here we can check if there are no groups
         })
         
         
@@ -152,6 +168,16 @@ class ModelFirebase{
         withCancel: {(snapshot) in
         //error/cancel
         })
+        
+        userGroupsRef.observe(.childRemoved, with: {(snapshot) in
+            let groupKey = snapshot.key
+            let index = groups.index(where: { (a) -> Bool in
+                a.groupId == groupKey
+            })
+            groups.remove(at: index!)
+            callback(groups)
+            
+        })
 
     }
     
@@ -162,6 +188,12 @@ class ModelFirebase{
     
     func removeProduct(product:Product, groupId:String){
         let ref = FIRDatabase.database().reference().child("products").child(groupId).child(product.productKey)
+        ref.removeValue()
+    }
+    
+    func removeGroup(userId:String, groupId:String){
+        let ref = FIRDatabase.database().reference().child("users").child(userId).child("registeredGroups")
+        .child(groupId)
         ref.removeValue()
     }
     
