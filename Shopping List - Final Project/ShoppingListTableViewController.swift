@@ -83,12 +83,12 @@ class ShoppingListTableViewController: UIViewController, UITableViewDataSource, 
         productCell.productQuantityLabel.text = String(self.shoppingList[indexPath.row].productQuantity)
         
         // Get the image group (cached or from the server)
-        if let imUrl = self.shoppingList[indexPath.row].imageUrl{
+        let imUrl = self.shoppingList[indexPath.row].imageUrl
+        
             Model.instance.getImage(urlStr: imUrl, callback:
                 { (image) in productCell.productImageView!.image = image
                     
             })
-        }
         //productCell.productImageView.image = self.shoppingList[indexPath.row].productImage
         
         return productCell
@@ -132,6 +132,11 @@ class ShoppingListTableViewController: UIViewController, UITableViewDataSource, 
     
     // The unwind segue from new product
     @IBAction func unwindToShoppingListTableViewController(segue: UIStoryboardSegue){
+        if let inviteUserVc = segue.source as? InviteUserViewController{
+            if (segue.identifier == "inviteUserUnwindSegue"){
+                // פה הלוגיקה של ההוספת יוזר
+            }
+        }
         if let newProductVc = segue.source as? AddNewProductViewController{
             if (segue.identifier == "addNewProductUnwindSegue"){
                 let dateFormatter = DateFormatter()

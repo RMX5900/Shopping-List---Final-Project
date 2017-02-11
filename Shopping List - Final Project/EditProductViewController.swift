@@ -59,6 +59,8 @@ class EditProductViewController: UIViewController, UIImagePickerControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "wallpaper"))
+        
         self.productNameTextField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
         self.companyTextField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
         self.quantityTextField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
@@ -69,14 +71,14 @@ class EditProductViewController: UIViewController, UIImagePickerControllerDelega
         self.quantityTextField.text = String(product.productQuantity)
         
         // Get the image
-        /*
-        Model.instance.getImage(urlStr: product.imageUrl!, callback: {
+        
+        Model.instance.getImage(urlStr: product.imageUrl, callback: {
             (image) in
             // Set the chosen image as the background
             self.cameraButton.setBackgroundImage(image, for: UIControlState.normal)
             self.productImage = image!
         })
- */
+ 
     }
 
     override func didReceiveMemoryWarning() {

@@ -68,6 +68,7 @@ class ModelFirebase{
                 let product = Product.init(name: json["productName"]! as! String,
                                            company: json["productCompany"]! as! String,
                                            quantity: Int(json["productQuantity"]! as! String)!,
+                                           image: json["imageUrl"]! as! String,
                                            addedByUserId: json["addedByUserId"]! as! String,
                                            addedDate: json["addedDate"]! as! String,
                                            productKey:productKey
@@ -86,6 +87,7 @@ class ModelFirebase{
                 let product = Product.init(name: json["productName"]! as! String,
                                            company: json["productCompany"]! as! String,
                                            quantity: Int(json["productQuantity"]! as! String)!,
+                                           image: json["imageUrl"]! as! String,
                                            addedByUserId: json["addedByUserId"]! as! String,
                                            addedDate: json["addedDate"]! as! String,
                                            productKey:json["productKey"]! as! String
@@ -138,7 +140,7 @@ class ModelFirebase{
             let groupKey = snapshot.key
             refGroups.child(groupKey).observe(.value, with: {(snapshotInner) in
                 if let json = snapshotInner.value as? Dictionary<String,NSObject>{
-                    let group = Group.init(mails: [String](), name: json["groupName"]! as! String, list: [Product](),groupId: snapshotInner.key)
+                    let group = Group.init(mails: [String](), name: json["groupName"]! as! String, list: [Product](),groupId: snapshotInner.key, img: json["imageUrl"]! as! String)
                     groups.append(group)
                     callback(groups)
                 }
@@ -167,28 +169,13 @@ class ModelFirebase{
     
     func saveImageToFirebase(image:UIImage, name:(String), callback:@escaping (String?)->Void){
         let filesRef = storageRef.child(name)
-        print("-------------")
-        print("-------------")
-        print("-------------")
         if let data = UIImageJPEGRepresentation(image, 0.8) {
             filesRef.put(data, metadata: nil) { metadata, error in
-                print("----asd-----")
-                print("-------------")
-                print("----asd-------")
                 if (error != nil) {
-                    callback("mshoo")
-                    print("-------------")
-                    print("-------------")
-                    print("-------------")
+                    callback(nil)
                 } else {
                     let downloadURL = metadata!.downloadURL()
-                    print("-------------")
-                    print("-------------")
-                    print("-------------")
                     print(downloadURL)
-                    print("-------------")
-                    print("-------------")
-                    print("-------------")
                     callback(downloadURL?.absoluteString)
                 }
             }
