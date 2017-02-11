@@ -92,8 +92,8 @@ class RegisterViewController: UIViewController {
             }
             
             if(user != nil){
-                let alertMsg:String = "user created: " + (user?.email)!
-                self.alertMessage(strAlert: alertMsg)
+                //let alertMsg:String = "user created: " + (user?.email)!
+                //self.alertMessage(strAlert: alertMsg)
                 //print ("user created: %@", user!)
                 let newUser = User.init(userId: (user?.uid)!, firstName: self.nameTextField.text!, lastName: "", email: self.emailTextField.text!)
                 Model.instance.addUser(user: newUser)

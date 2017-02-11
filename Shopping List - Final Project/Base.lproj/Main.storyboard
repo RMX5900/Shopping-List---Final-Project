@@ -449,7 +449,7 @@
                         <outlet property="nameTextField" destination="y0v-yB-sr7" id="j1j-3G-3cB"/>
                         <outlet property="passTextField" destination="o21-sF-tc2" id="wrr-vU-P36"/>
                         <outlet property="registerButton" destination="g97-xd-jE3" id="4hP-Wh-rWn"/>
-                        <segue destination="jqs-94-aIr" kind="show" identifier="presentRegisteredSegue" id="ewg-Fh-0y8"/>
+                        <segue destination="jqs-94-aIr" kind="show" identifier="presentRegisteredSegue" action="showDetailViewController:sender:" id="VIJ-gW-Kwv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aG9-Os-L1C" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -659,6 +659,6 @@
         <image name="studentIcon" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1HF-SO-nTg"/>
+        <segue reference="VIJ-gW-Kwv"/>
     </inferredMetricsTieBreakers>
 </document>
