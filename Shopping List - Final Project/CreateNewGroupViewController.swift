@@ -26,6 +26,18 @@ class CreateNewGroupViewController: UIViewController, UITableViewDataSource, UIT
     
     var groupImage:UIImage = #imageLiteral(resourceName: "defaultGroupImage")
     
+    var groupImageUrl:String = ""
+    
+    @IBAction func createButtonClicked(_ sender: UIButton) {
+        // Saves the image to the FireBase & locally
+        Model.instance.saveImage(image: self.groupImage, name: self.groupNameTextField.text!, callback: {
+            (str) in
+            self.groupImageUrl = str!
+            self.performSegue(withIdentifier: "unwindSegueCreateGroup", sender: self)
+        })
+    }
+    
+    
     @IBAction func cameraButtonClicked(_ sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
             let imagePicker = UIImagePickerController()
@@ -125,16 +137,24 @@ class CreateNewGroupViewController: UIViewController, UITableViewDataSource, UIT
         // Remove the student row from the tableview
         self.invitedEmailTableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
     }
-    
 
     /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+        // Saves the image to the FireBase & locally
+        Model.instance.saveImage(image: self.groupImage, name: self.groupNameTextField.text!, callback: {
+            (str) in
+            self.groupImageUrl = str!
+            print(str!)
+            print(str!)
+            print(self.groupImageUrl)
+            print("asdasdasd")
+            })
+        //Model.instance.saveImage(image: groupImage, name: self.groupImageString)
+        //Model..saveImageToFile(image: groupImage, name: self.groupImageString)
+    }*/
+    
 
 }

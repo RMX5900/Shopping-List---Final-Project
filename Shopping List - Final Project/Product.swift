@@ -15,13 +15,13 @@ class Product{
     var addedByUserId:String
     var addedByUser:User
     var addedDate:String
-    var productImage:UIImage?
+    var imageUrl:String?
     
-    init(name:String, company:String, quantity:Int, image:UIImage?, addedByUserId:String, addedDate:String) {
+    init(name:String, company:String, quantity:Int, image:String? = nil, addedByUserId:String, addedDate:String) {
         self.productName = name
         self.productCompany = company
         self.productQuantity = quantity
-        self.productImage = image
+        self.imageUrl = image
         self.addedByUser = User()
         self.addedByUserId = addedByUserId
         self.addedDate = addedDate

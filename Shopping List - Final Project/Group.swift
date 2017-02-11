@@ -13,16 +13,15 @@ class Group {
     var mailList:[String]
     var groupName:String
     var shoppingList:[Product]
-    var groupImage:UIImage
+    var imageUrl:String?
     var groupId:String
     
     // init the params
-    init(mails:[String], name:String, list:[Product],groupId:String/*, image:UIImage*/) {
+    init(mails:[String], name:String, list:[Product], groupId:String, img:String? = nil) {
         self.mailList = mails
         self.groupName = name
         self.shoppingList = list
-        self.groupImage = UIImage()
         self.groupId = groupId
-        //self.groupImage = image
+        self.imageUrl = img
     }
 }

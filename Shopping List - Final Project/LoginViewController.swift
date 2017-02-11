@@ -15,9 +15,12 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var passTextField: UITextField!
     
+    @IBOutlet weak var loginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "wallpaper"))
         
         let user :FIRUser? = FIRAuth.auth()?.currentUser
         
@@ -26,9 +29,43 @@ class LoginViewController: UIViewController {
             print(user!.email!)
 
            // self.performSegue(withIdentifier: "presentLoggedInSegue", sender: self)
-        } 
+        }
+        
+        self.emailTextField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
+        
+        self.passTextField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
         
         // Do any additional setup after loading the view.
+    }
+    
+    // Called when the group name text changes
+    func textFieldDidChange(textField:UITextField){
+        // SET to false
+        self.loginButton.isEnabled = false
+        
+        // IF not empty && mail valid - enable
+        if (self.emailTextField.text! != "" &&
+            self.passTextField.text! != "" &&
+            self.isMailValid(mail: self.emailTextField.text!)){
+            self.loginButton.isEnabled = true
+        }
+    }
+    
+    // Called when the mail text changes
+    func isMailValid(mail:String)->Bool{
+        // Set the regEx Params
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        
+        return emailTest.evaluate(with: mail)
+    }
+    
+    // Alert the user when error occured
+    func alertMessage(strAlert:String){
+        let alert = UIAlertController(title: "Alert", message: strAlert, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func onLogin(_ sender: Any) {
@@ -39,7 +76,8 @@ class LoginViewController: UIViewController {
                 print(user!.email!)
                 self.performSegue(withIdentifier: "presentLoggedInSegue", sender: self)
             } else{
-                print(error?.localizedDescription)
+                //print(error?.localizedDescription)
+                self.alertMessage(strAlert: (error?.localizedDescription)!)
                 //show credentials wrong alert
             }
         }

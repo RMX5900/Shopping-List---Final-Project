@@ -11,6 +11,8 @@ import Firebase
 
 class GroupsTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    let storage = FIRStorage.storage()
+    
     var isOnEditMode:Bool = false
     
     var groupList:[Group] = []
@@ -52,15 +54,22 @@ class GroupsTableViewController: UIViewController, UITableViewDataSource, UITabl
         return self.groupList.count
     }
     
-    
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath)
         
         let groupCell = cell as! GroupTableViewCell
         groupCell.groupNameLabel.text = self.groupList[indexPath.row].groupName
-        groupCell.groupImageView.image = self.groupList[indexPath.row].groupImage
-        var mailUsersStringed:String = ""
+        //groupCell.groupImageView.image = self.groupList[indexPath.row].groupImage
         
+        // Get the cached image group
+        if let imUrl = self.groupList[indexPath.row].imageUrl{
+            Model.instance.getImage(urlStr: imUrl, callback:
+                { (image) in groupCell.groupImageView!.image = image
+                    
+            })
+        }
+        
+        var mailUsersStringed:String = ""
         
         for mail in self.groupList[indexPath.row].mailList {
             if (mailUsersStringed != ""){
@@ -119,8 +128,8 @@ class GroupsTableViewController: UIViewController, UITableViewDataSource, UITabl
             
             if (segue.identifier! == "unwindSegueCreateGroup"){
                 // Create a new group and add it
-                self.groupList.append(Group(mails: newGroupVc.emailsList, name: newGroupVc.groupNameTextField.text!,list:[], groupId:""/*, image: newGroupVc.groupImage*/))
-                Model.instance.addGroup(group: Group(mails: newGroupVc.emailsList, name: newGroupVc.groupNameTextField.text!,list:[], groupId:""/*, image: newGroupVc.groupImage)*/))
+                self.groupList.append(Group(mails: newGroupVc.emailsList, name: newGroupVc.groupNameTextField.text!,list:[], groupId:"", img: newGroupVc.groupImageUrl))
+                Model.instance.addGroup(group: Group(mails: newGroupVc.emailsList, name: newGroupVc.groupNameTextField.text!,list:[], groupId:"", img: newGroupVc.groupImageUrl))
                 // Refresh the tableview
                 self.groupsTableView.reloadData()
             }

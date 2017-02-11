@@ -20,9 +20,21 @@ class EditProductViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBOutlet weak var cameraButton: UIButton!
     
-    var product:Product = Product(name: "", company: "", quantity: 0, image: nil,addedByUserId:"", addedDate:"")
+    var product:Product = Product(name: "", company: "", quantity: 0, image: "",addedByUserId:"", addedDate:"")
     
-    var productImage:UIImage?
+    var productImage:UIImage = #imageLiteral(resourceName: "defaultProductImage")
+    
+    @IBAction func saveButtonClicked(_ sender: UIButton) {
+        // Saves the image to the FireBase & locally
+        Model.instance.saveImage(image: self.productImage, name: self.productNameTextField.text!, callback: {
+            (str) in
+            // Update the product
+            self.product = Product(name: self.productNameTextField.text!, company: self.companyTextField.text!, quantity: Int(self.quantityTextField.text!)!, image: str!, addedByUserId: "pre", addedDate: "preDate")
+            
+            self.performSegue(withIdentifier: "editProductUnwindSegue", sender: self)
+        })
+    }
+    
     
     @IBAction func cameraButtonClicked(_ sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
@@ -55,12 +67,13 @@ class EditProductViewController: UIViewController, UIImagePickerControllerDelega
         self.companyTextField.text = product.productCompany
         self.quantityTextField.text = String(product.productQuantity)
         
-        // Set the chosen image as the background
-        self.cameraButton.setBackgroundImage(product.productImage, for: UIControlState.normal)
-        
-        self.productImage = product.productImage
-
-        // Do any additional setup after loading the view.
+        // Get the image
+        Model.instance.getImage(urlStr: product.imageUrl!, callback: {
+            (image) in
+            // Set the chosen image as the background
+            self.cameraButton.setBackgroundImage(image, for: UIControlState.normal)
+            self.productImage = image!
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -89,14 +102,14 @@ class EditProductViewController: UIViewController, UIImagePickerControllerDelega
     }
     
 
-    
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Update the product
-        self.product = Product(name: productNameTextField.text!, company: companyTextField.text!, quantity: Int(quantityTextField.text!)!, image: productImage, addedByUserId: "pre", addedDate: "preDate")
-    }
+        self.product = Product(name: self.productNameTextField.text!, company: self.companyTextField.text!, quantity: Int(self.quantityTextField.text!)!, image: imgStr, addedByUserId: "pre", addedDate: "preDate")
+    }*/
     
 
 }
