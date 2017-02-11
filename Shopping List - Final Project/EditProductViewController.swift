@@ -20,7 +20,7 @@ class EditProductViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBOutlet weak var cameraButton: UIButton!
     
-    var product:Product = Product(name: "", company: "", quantity: 0, image: "",addedByUserId:"", addedDate:"")
+    var product:Product = Product(name: "", company: "", quantity: 0, image: "",addedByUserId:"", addedDate:"", productKey:"")
     
     var productImage:UIImage = #imageLiteral(resourceName: "defaultProductImage")
     
@@ -29,7 +29,8 @@ class EditProductViewController: UIViewController, UIImagePickerControllerDelega
         Model.instance.saveImage(image: self.productImage, name: self.productNameTextField.text!, callback: {
             (str) in
             // Update the product
-            self.product = Product(name: self.productNameTextField.text!, company: self.companyTextField.text!, quantity: Int(self.quantityTextField.text!)!, image: str!, addedByUserId: "pre", addedDate: "preDate")
+            self.product = Product(name: self.productNameTextField.text!, company: self.companyTextField.text!, quantity: Int(self.quantityTextField.text!)!, image: str!, addedByUserId: self.product.addedByUserId , addedDate: self.product.addedDate,
+                                   productKey:self.product.productKey)
             
             self.performSegue(withIdentifier: "editProductUnwindSegue", sender: self)
         })
@@ -68,12 +69,14 @@ class EditProductViewController: UIViewController, UIImagePickerControllerDelega
         self.quantityTextField.text = String(product.productQuantity)
         
         // Get the image
+        /*
         Model.instance.getImage(urlStr: product.imageUrl!, callback: {
             (image) in
             // Set the chosen image as the background
             self.cameraButton.setBackgroundImage(image, for: UIControlState.normal)
             self.productImage = image!
         })
+ */
     }
 
     override func didReceiveMemoryWarning() {

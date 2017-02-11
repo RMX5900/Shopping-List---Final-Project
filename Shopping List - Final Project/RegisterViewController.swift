@@ -92,7 +92,7 @@ class RegisterViewController: UIViewController {
             }
             
             if(user != nil){
-                let alertMsg:String = "user created: " + (user?.displayName)!
+                let alertMsg:String = "user created: " + (user?.email)!
                 self.alertMessage(strAlert: alertMsg)
                 //print ("user created: %@", user!)
                 let newUser = User.init(userId: (user?.uid)!, firstName: self.nameTextField.text!, lastName: "", email: self.emailTextField.text!)
@@ -100,8 +100,8 @@ class RegisterViewController: UIViewController {
                 FIRAuth.auth()?.signIn(withEmail: self.emailTextField.text!, password: self.passTextField.text!) { (user, error) in
                     //redirect user to main view (My Groups)
                     
-                    
-                    self.performSegue(withIdentifier: "presentRegisteredInSegue", sender: self)
+                    //todo check why it doesnt redirect to main view with this segue
+                    self.performSegue(withIdentifier: "presentRegisteredSegue", sender: self)
                 }
             }
         }

@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class GroupsTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -130,6 +131,8 @@ class GroupsTableViewController: UIViewController, UITableViewDataSource, UITabl
                 // Create a new group and add it
                 self.groupList.append(Group(mails: newGroupVc.emailsList, name: newGroupVc.groupNameTextField.text!,list:[], groupId:"", img: newGroupVc.groupImageUrl))
                 Model.instance.addGroup(group: Group(mails: newGroupVc.emailsList, name: newGroupVc.groupNameTextField.text!,list:[], groupId:"", img: newGroupVc.groupImageUrl))
+                
+        
                 // Refresh the tableview
                 self.groupsTableView.reloadData()
             }

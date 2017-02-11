@@ -56,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		044895BCE1E6800407E08F52 /* Pods-Shopping List - Final ProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopping List - Final ProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shopping List - Final ProjectUITests/Pods-Shopping List - Final ProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
+		04531C401E4F6BBE00A6582F /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		045B4D771E3CD6B90057358B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Shopping List - Final Project/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		045B4D7A1E3CDF9D0057358B /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		045B4D7C1E3CDFDE0057358B /* ModelFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelFirebase.swift; sourceTree = "<group>"; };
@@ -130,6 +131,7 @@
 			children = (
 				045B4D7A1E3CDF9D0057358B /* Model.swift */,
 				045B4D7C1E3CDFDE0057358B /* ModelFirebase.swift */,
+				04531C401E4F6BBE00A6582F /* BridgingHeader.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";

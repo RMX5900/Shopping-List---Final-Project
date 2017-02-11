@@ -42,16 +42,15 @@ class Model{
     func getGroupsByUserId(userId:String, callback:@escaping ([Group])->Void){
         modelFirebase?.getGroupsByUserId(userId: userId, callback: callback)
     }
-
     
-    /*
-    func getStudentById(id:String, callback:@escaping (Student)->Void){
+    func removeProduct(product:Product, groupId:String){
+        modelFirebase?.removeProduct(product: product, groupId: groupId)
     }
     
-    func getAllStudents(callback:@escaping ([Student])->Void){
-        let students = Student.getAllStudents(database:modelSql?.database)
-        callback(students)
-    }*/
+    func editProduct(product:Product, groupId:String){
+        modelFirebase?.editProduct(product: product, groupId: groupId)
+    }
+
     func saveImage(image:UIImage, name:String, callback:@escaping (String?)->Void){
         //2. save image localy
         self.saveImageToFile(image: image, name: name)

@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class ShoppingListTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -35,6 +36,13 @@ class ShoppingListTableViewController: UIViewController, UITableViewDataSource, 
         self.navigationBar.title = group.groupName + " List"
         
         self.productsTableView.backgroundView = UIImageView(image: #imageLiteral(resourceName: "wallpaper"))
+        
+        Model.instance.getProductsByGroupId(groupId: group.groupId, callback: {(products) in
+        self.shoppingList = products
+        self.productsTableView.reloadData()
+        
+        })
+    
 
         // Do any additional setup after loading the view.
     }
@@ -103,10 +111,15 @@ class ShoppingListTableViewController: UIViewController, UITableViewDataSource, 
     
     public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
         // Delete the student from the list
+        Model.instance.removeProduct(product: self.shoppingList[indexPath.row], groupId: self.group.groupId)
+      
+        /*
         self.shoppingList.remove(at: indexPath.row)
         
         // Remove the student row from the tableview
         self.productsTableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+ */
+ 
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -126,43 +139,24 @@ class ShoppingListTableViewController: UIViewController, UITableViewDataSource, 
                 //dateFormatter.locale = Locale.init(identifier: "en_GB")
                 let dateString = dateFormatter.string(from: Date())
                 // Create a new product by the details
-                let newProduct:Product = Product(name: newProductVc.productNameTextField.text!, company: newProductVc.productCompanyTextField.text!,quantity:Int(newProductVc.productQuantityTextField.text!)!, image: newProductVc.productImageUrl,addedByUserId:FIRAuth.auth()!.currentUser!.uid, addedDate:dateString)
+                let newProduct:Product = Product(name: newProductVc.productNameTextField.text!,
+                    company: newProductVc.productCompanyTextField.text!,
+                    quantity:Int(newProductVc.productQuantityTextField.text!)!,
+                    image: newProductVc.productImageUrl,
+                    addedByUserId:FIRAuth.auth()!.currentUser!.uid,
+                    addedDate:dateString,
+                    productKey: ""
+                )
                 Model.instance.addProduct(product: newProduct, groupId: self.group.groupId)
-                // Adding the item to the list
-                
-                //self.shoppingList.append(newProduct)
-                
-                //addi
-                
-                // Upadte the group
-                self.group.shoppingList = self.shoppingList
-                
-                // Refresh data
-                self.productsTableView.reloadData()
             }
         }
         if let editProductVc = segue.source as? EditProductViewController{
             if (segue.identifier == "editProductUnwindSegue"){
-                // Update the product
-                self.shoppingList[selectedIndex!] = editProductVc.product
-                
-                // Upadte the group
-                self.group.shoppingList = self.shoppingList
-                
-                // Refresh data
-                self.productsTableView.reloadData()
+                Model.instance.editProduct(product: editProductVc.product, groupId: self.group.groupId)
+
             }
         }
-
-        
-            // Create a new student by the details
-            //let newStud:Student = Student(fName: newStudentVc.firstNameText.text!, lName: newStudentVc.lastNameText.text!, stID: newStudentVc.studentIdText.text!, phoneNum: newStudentVc.phoneText.text!)
-            
-            // Add the student to the list
-            //studentsList.append(newStud)
-            
-            // Refresh the tableview
-            //StudentsTableView.reloadData()
+    
         }
     }
 
