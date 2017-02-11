@@ -8,17 +8,18 @@
 
 import UIKit
 
-class JoinGroupViewController: UIViewController {
+class InviteUserViewController: UIViewController {
 
-    @IBOutlet weak var groupNameTextField: UITextField!
-    @IBOutlet weak var joinButton: UIButton!
+    @IBOutlet weak var emailTextField: UITextField!
+    
+    @IBOutlet weak var inviteButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "wallpaper"))
 
-        self.groupNameTextField.addTarget(self, action: #selector(groupNameDidChange(textField:)), for: .editingChanged)
+        self.emailTextField.addTarget(self, action: #selector(mailDidChange(textField:)), for: .editingChanged)
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,13 +28,19 @@ class JoinGroupViewController: UIViewController {
     }
     
     // Called when the group name text changes
-    func groupNameDidChange(textField:UITextField){
-        // SET to false
-        self.joinButton.isEnabled = false
+    func mailDidChange(textField:UITextField){
         
-        // IF not empty - enable
-        if (self.groupNameTextField.text! != ""){
-            self.joinButton.isEnabled = true
+        // SET to false
+        self.inviteButton.isEnabled = false
+        
+        // Set the regEx Params
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        
+        // Check if the mail is valid
+        if (emailTest.evaluate(with: emailTextField.text!)){
+            self.inviteButton.isEnabled = true
         }
     }
     

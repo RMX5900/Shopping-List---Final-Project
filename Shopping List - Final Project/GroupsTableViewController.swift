@@ -63,12 +63,12 @@ class GroupsTableViewController: UIViewController, UITableViewDataSource, UITabl
         //groupCell.groupImageView.image = self.groupList[indexPath.row].groupImage
         
         // Get the cached image group
-        if let imUrl = self.groupList[indexPath.row].imageUrl{
-            Model.instance.getImage(urlStr: imUrl, callback:
+        let imUrl = self.groupList[indexPath.row].imageUrl
+        Model.instance.getImage(urlStr: imUrl, callback:
                 { (image) in groupCell.groupImageView!.image = image
                     
-            })
-        }
+        })
+        
         
         var mailUsersStringed:String = ""
         
@@ -129,18 +129,13 @@ class GroupsTableViewController: UIViewController, UITableViewDataSource, UITabl
             
             if (segue.identifier! == "unwindSegueCreateGroup"){
                 // Create a new group and add it
-                self.groupList.append(Group(mails: newGroupVc.emailsList, name: newGroupVc.groupNameTextField.text!,list:[], groupId:"", img: newGroupVc.groupImageUrl))
-                Model.instance.addGroup(group: Group(mails: newGroupVc.emailsList, name: newGroupVc.groupNameTextField.text!,list:[], groupId:"", img: newGroupVc.groupImageUrl))
+                self.groupList.append(Group(mails: [], name: newGroupVc.groupNameTextField.text!,list:[], groupId:"", img: newGroupVc.groupImageUrl))
+                Model.instance.addGroup(group: Group(mails: [], name: newGroupVc.groupNameTextField.text!,list:[], groupId:"", img: newGroupVc.groupImageUrl))
                 
         
                 // Refresh the tableview
                 self.groupsTableView.reloadData()
             }
-        }
-        else if let joinGroupVc = segue.source as? JoinGroupViewController{
-            // TODO:
-            // Add the exiting group code
-            Model.instance.addUserToGroup(userId: (FIRAuth.auth()?.currentUser?.uid)!, groupId: joinGroupVc.groupNameTextField.text!)
         }
     }
     

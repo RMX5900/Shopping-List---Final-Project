@@ -32,7 +32,7 @@
 		84F5324A1E2923980043455D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F532491E2923980043455D /* RegisterViewController.swift */; };
 		84F5324C1E2923B70043455D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F5324B1E2923B70043455D /* LoginViewController.swift */; };
 		84F5324E1E2923E40043455D /* CreateNewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F5324D1E2923E40043455D /* CreateNewGroupViewController.swift */; };
-		84F532501E2924060043455D /* JoinGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F5324F1E2924060043455D /* JoinGroupViewController.swift */; };
+		84F532501E2924060043455D /* InviteUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F5324F1E2924060043455D /* InviteUserViewController.swift */; };
 		84F532521E2924AE0043455D /* GroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F532511E2924AE0043455D /* GroupsTableViewController.swift */; };
 		8782A463F1FB9474DA250776 /* Pods_Shopping_List___Final_ProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34CDD178453DF6EB822D7E26 /* Pods_Shopping_List___Final_ProjectTests.framework */; };
 /* End PBXBuildFile section */
@@ -92,7 +92,7 @@
 		84F532491E2923980043455D /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		84F5324B1E2923B70043455D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		84F5324D1E2923E40043455D /* CreateNewGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewGroupViewController.swift; sourceTree = "<group>"; };
-		84F5324F1E2924060043455D /* JoinGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinGroupViewController.swift; sourceTree = "<group>"; };
+		84F5324F1E2924060043455D /* InviteUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteUserViewController.swift; sourceTree = "<group>"; };
 		84F532511E2924AE0043455D /* GroupsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsTableViewController.swift; sourceTree = "<group>"; };
 		C5704781D01012A32F3C56DE /* Pods-Shopping List - Final Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopping List - Final Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shopping List - Final Project/Pods-Shopping List - Final Project.release.xcconfig"; sourceTree = "<group>"; };
 		C6166D04613B84567C25A5C1 /* Pods_Shopping_List___Final_ProjectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Shopping_List___Final_ProjectUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,7 +197,7 @@
 				84F532491E2923980043455D /* RegisterViewController.swift */,
 				84F5324B1E2923B70043455D /* LoginViewController.swift */,
 				84F5324D1E2923E40043455D /* CreateNewGroupViewController.swift */,
-				84F5324F1E2924060043455D /* JoinGroupViewController.swift */,
+				84F5324F1E2924060043455D /* InviteUserViewController.swift */,
 				84F532511E2924AE0043455D /* GroupsTableViewController.swift */,
 				840E2BF11E29715D0050802C /* MailTableViewCell.swift */,
 				840E2BF31E2A43FF0050802C /* Group.swift */,
@@ -515,7 +515,7 @@
 				84F5324C1E2923B70043455D /* LoginViewController.swift in Sources */,
 				84F532521E2924AE0043455D /* GroupsTableViewController.swift in Sources */,
 				840E2BFA1E2A5D1D0050802C /* ProductTableViewCell.swift in Sources */,
-				84F532501E2924060043455D /* JoinGroupViewController.swift in Sources */,
+				84F532501E2924060043455D /* InviteUserViewController.swift in Sources */,
 				840E2BF41E2A44000050802C /* Group.swift in Sources */,
 				84F532481E2921F70043455D /* ShoppingTableViewCell.swift in Sources */,
 				840D89931E290043002EB764 /* ViewController.swift in Sources */,
