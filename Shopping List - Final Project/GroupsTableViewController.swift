@@ -91,7 +91,7 @@ class GroupsTableViewController: UIViewController, UITableViewDataSource, UITabl
         // Set the selected index
         self.selectedIndex = indexPath.row
         
-        // Perform segue to the student details window
+        // Perform segue to the shopping list details window
         self.performSegue(withIdentifier: "presentShoppingListSegue", sender: self)
     }
     
@@ -101,17 +101,22 @@ class GroupsTableViewController: UIViewController, UITableViewDataSource, UITabl
             // Pass the group
             shopListVc.group = self.groupList[self.selectedIndex!]
             
-            // Pass the student details
+            // Pass the group details
             shopListVc.shoppingList = self.groupList[self.selectedIndex!].shoppingList
         }
     }
     
     public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
-        // Delete the student from the list
+        Model.instance.removeGroup(userId: (FIRAuth.auth()?.currentUser?.uid)!,
+                                   groupId: self.groupList[indexPath.row].groupId)
+        
+        /*
+        // Delete the group from the list
         self.groupList.remove(at: indexPath.row)
         
         // Remove the student row from the tableview
         self.groupsTableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+ */
     }
     /*
      // MARK: - Navigation
@@ -125,6 +130,7 @@ class GroupsTableViewController: UIViewController, UITableViewDataSource, UITabl
     
     // The unwind segue from new product
     @IBAction func unwindToGroupsTableViewController(segue: UIStoryboardSegue){
+        
         if let newGroupVc = segue.source as? CreateNewGroupViewController{
             
             if (segue.identifier! == "unwindSegueCreateGroup"){

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 extension String {
     public init?(validatingUTF8 cString: UnsafePointer<UInt8>) {
         if let (result, _) = String.decodeCString(cString, as: UTF8.self,
@@ -21,7 +22,12 @@ extension String {
 
 
 class ModelSql{
+    /*
     var database: OpaquePointer? = nil
+    if sqlite3_open(path.absoluteString, &database) != 1 {
+    print("Failed to open db file: \(path.absoluteString)")
+    return nil
+    }*/
     /*
     init?(){
         let dbFileName = "database9.db"

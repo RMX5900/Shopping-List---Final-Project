@@ -19,7 +19,9 @@ class Model{
     
     private init(){
     }
-    
+    func removeGroup(userId:String, groupId:String){
+        modelFirebase?.removeGroup(userId: userId, groupId: groupId)
+    }
     func addGroup(group:Group){
         modelFirebase?.addGroup(group: group)
        // st.addStudent(database: modelSql?.database)
@@ -38,6 +40,9 @@ class Model{
     }
     func getProductsByGroupId(groupId:String, callback:@escaping ([Product])->Void){
         modelFirebase?.getProductsByGroupId(groupId: groupId, callback: callback)        // st.addStudent(database: modelSql?.database)
+    }
+    func getUserByEmail(email:String, callback:@escaping (User)->Void){
+        modelFirebase?.getUserByEmail(email: email, callback: callback)
     }
     func getGroupsByUserId(userId:String, callback:@escaping ([Group])->Void){
         modelFirebase?.getGroupsByUserId(userId: userId, callback: callback)

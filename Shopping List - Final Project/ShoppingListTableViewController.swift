@@ -134,7 +134,9 @@ class ShoppingListTableViewController: UIViewController, UITableViewDataSource, 
     @IBAction func unwindToShoppingListTableViewController(segue: UIStoryboardSegue){
         if let inviteUserVc = segue.source as? InviteUserViewController{
             if (segue.identifier == "inviteUserUnwindSegue"){
-                // פה הלוגיקה של ההוספת יוזר
+                Model.instance.getUserByEmail(email:inviteUserVc.emailTextField.text!, callback: {(user) in
+                    Model.instance.addUserToGroup(userId: user.userId, groupId: self.group.groupId)
+                })
             }
         }
         if let newProductVc = segue.source as? AddNewProductViewController{
