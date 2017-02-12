@@ -16,6 +16,8 @@ class CreateNewGroupViewController: UIViewController, UIImagePickerControllerDel
     
     @IBOutlet weak var cameraButton: UIButton!
     
+    @IBOutlet weak var acitivityIndicatorView: UIActivityIndicatorView!
+    
     var emailsList:[String] = []
     
     var groupImage:UIImage = #imageLiteral(resourceName: "defaultGroupImage")
@@ -23,10 +25,15 @@ class CreateNewGroupViewController: UIViewController, UIImagePickerControllerDel
     var groupImageUrl:String = ""
     
     @IBAction func createButtonClicked(_ sender: UIButton) {
+        self.acitivityIndicatorView.startAnimating()
+        
         // Saves the image to the FireBase & locally
         Model.instance.saveImage(image: self.groupImage, name: self.groupNameTextField.text!, callback: {
             (str) in
             self.groupImageUrl = str!
+            
+            self.acitivityIndicatorView.stopAnimating()
+            
             self.performSegue(withIdentifier: "unwindSegueCreateGroup", sender: self)
         })
     }

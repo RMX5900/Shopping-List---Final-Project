@@ -14,6 +14,8 @@ class GroupTableViewCell: UITableViewCell {
     @IBOutlet weak var groupImageView: UIImageView!
     @IBOutlet weak var mailsListLabel: UILabel!
 
+    @IBOutlet weak var acitivityIndicatorView: UIActivityIndicatorView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

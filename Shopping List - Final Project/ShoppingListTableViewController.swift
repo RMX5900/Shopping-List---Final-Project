@@ -78,6 +78,7 @@ class ShoppingListTableViewController: UIViewController, UITableViewDataSource, 
         let rowCell = self.productsTableView.dequeueReusableCell(withIdentifier: "productCell", for: indexPath)
         
         let productCell = rowCell as! ProductTableViewCell
+        productCell.activityIndicatorView.startAnimating()
         productCell.productNameLabel.text = self.shoppingList[indexPath.row].productName
         productCell.productCompanyLabel.text = "by " + self.shoppingList[indexPath.row].productCompany
         productCell.productQuantityLabel.text = String(self.shoppingList[indexPath.row].productQuantity)
@@ -87,6 +88,7 @@ class ShoppingListTableViewController: UIViewController, UITableViewDataSource, 
         
             Model.instance.getImage(urlStr: imUrl, callback:
                 { (image) in productCell.productImageView!.image = image
+                    productCell.activityIndicatorView.stopAnimating()
                     
             })
         //productCell.productImageView.image = self.shoppingList[indexPath.row].productImage

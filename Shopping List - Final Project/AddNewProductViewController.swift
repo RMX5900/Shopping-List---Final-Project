@@ -17,14 +17,19 @@ class AddNewProductViewController: UIViewController, UIImagePickerControllerDele
     
     @IBOutlet weak var addButton: UIButton!
     
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    
     var productImage:UIImage = #imageLiteral(resourceName: "defaultProductImage")
     var productImageUrl:String = ""
     
     @IBAction func addButtonClicked(_ sender: UIButton) {
+        self.activityIndicatorView.startAnimating()
+        
         // Saves the image to the FireBase & locally
         Model.instance.saveImage(image: self.productImage, name: self.productNameTextField.text!, callback: {
             (str) in
             self.productImageUrl = str!
+            self.activityIndicatorView.stopAnimating()
             self.performSegue(withIdentifier: "addNewProductUnwindSegue", sender: self)
         })
     }

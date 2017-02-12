@@ -17,6 +17,9 @@ class ProductTableViewCell: UITableViewCell {
     @IBOutlet weak var productCompanyLabel: UILabel!
     
     @IBOutlet weak var productImageView: UIImageView!
+    
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

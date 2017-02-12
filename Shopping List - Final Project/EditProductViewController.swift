@@ -20,18 +20,23 @@ class EditProductViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBOutlet weak var cameraButton: UIButton!
     
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    
+    
     var product:Product = Product(name: "", company: "", quantity: 0, image: "",addedByUserId:"", addedDate:"", productKey:"")
     
     var productImage:UIImage = #imageLiteral(resourceName: "defaultProductImage")
     
     @IBAction func saveButtonClicked(_ sender: UIButton) {
+        self.activityIndicatorView.startAnimating()
+        
         // Saves the image to the FireBase & locally
         Model.instance.saveImage(image: self.productImage, name: self.productNameTextField.text!, callback: {
             (str) in
             // Update the product
             self.product = Product(name: self.productNameTextField.text!, company: self.companyTextField.text!, quantity: Int(self.quantityTextField.text!)!, image: str!, addedByUserId: self.product.addedByUserId , addedDate: self.product.addedDate,
                                    productKey:self.product.productKey)
-            
+            self.activityIndicatorView.stopAnimating()
             self.performSegue(withIdentifier: "editProductUnwindSegue", sender: self)
         })
     }
