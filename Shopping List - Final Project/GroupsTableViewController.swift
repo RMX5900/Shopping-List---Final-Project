@@ -36,6 +36,8 @@ class GroupsTableViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.hidesBackButton = true;
+        
         Model.instance.getGroupsByUserId(userId: (FIRAuth.auth()?.currentUser!.uid)!, callback: { (groups) in
             self.groupList = groups
             self.groupsTableView.backgroundView = UIImageView(image: #imageLiteral(resourceName: "wallpaper"))
@@ -59,13 +61,16 @@ class GroupsTableViewController: UIViewController, UITableViewDataSource, UITabl
         let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath)
         
         let groupCell = cell as! GroupTableViewCell
+        groupCell.acitivityIndicatorView.startAnimating()
         groupCell.groupNameLabel.text = self.groupList[indexPath.row].groupName
         //groupCell.groupImageView.image = self.groupList[indexPath.row].groupImage
         
         // Get the cached image group
         let imUrl = self.groupList[indexPath.row].imageUrl
         Model.instance.getImage(urlStr: imUrl, callback:
-                { (image) in groupCell.groupImageView!.image = image
+                {
+                    (image) in groupCell.groupImageView!.image = image
+                    groupCell.acitivityIndicatorView.stopAnimating()
                     
         })
         

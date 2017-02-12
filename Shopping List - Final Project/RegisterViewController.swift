@@ -15,7 +15,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var confirmPassTextField: UITextField!
     @IBOutlet weak var passTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
-    
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var registerButton: UIButton!
     
 
@@ -83,9 +83,11 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func onRegister(_ sender: Any) {
+        self.activityIndicatorView.startAnimating()
         FIRAuth.auth()?.createUser(withEmail: emailTextField.text!, password: passTextField.text! ) { (user, error) in
             if(error != nil)
             {
+                self.activityIndicatorView.stopAnimating()
                 let alertMsg:String = "Error signing out: " + (error?.localizedDescription)!
                 self.alertMessage(strAlert: alertMsg)
                 //print ("Error signing out: %@", error!)
@@ -101,6 +103,7 @@ class RegisterViewController: UIViewController {
                     //redirect user to main view (My Groups)
                     
                     //todo check why it doesnt redirect to main view with this segue
+                    self.activityIndicatorView.stopAnimating()
                     self.performSegue(withIdentifier: "presentRegisteredSegue", sender: self)
                 }
             }

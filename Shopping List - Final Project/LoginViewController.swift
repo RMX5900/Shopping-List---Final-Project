@@ -17,6 +17,8 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -69,14 +71,15 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onLogin(_ sender: Any) {
+        self.activityIndicatorView.startAnimating()
+        
         FIRAuth.auth()?.signIn(withEmail: self.emailTextField.text!, password: self.passTextField.text!) { (user, error) in
             //redirect user to main view (My Groups)
             
+            self.activityIndicatorView.stopAnimating()
             if (user != nil) {
-                print(user!.email!)
                 self.performSegue(withIdentifier: "presentLoggedInSegue", sender: self)
             } else{
-                //print(error?.localizedDescription)
                 self.alertMessage(strAlert: (error?.localizedDescription)!)
                 //show credentials wrong alert
             }
