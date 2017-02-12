@@ -10,6 +10,7 @@
 		04531C421E4F6D2100A6582F /* ModelSql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04531C411E4F6D2100A6582F /* ModelSql.swift */; };
 		04531C441E4F7F5600A6582F /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04531C431E4F7F5600A6582F /* libsqlite3.0.tbd */; };
 		04531C461E4F87DA00A6582F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04531C451E4F87DA00A6582F /* libsqlite3.tbd */; };
+		04531C481E4F9E1400A6582F /* ShoppingItemSql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04531C471E4F9E1400A6582F /* ShoppingItemSql.swift */; };
 		045B4D781E3CD6B90057358B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 045B4D771E3CD6B90057358B /* GoogleService-Info.plist */; };
 		045B4D7B1E3CDF9D0057358B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B4D7A1E3CDF9D0057358B /* Model.swift */; };
 		045B4D7D1E3CDFDE0057358B /* ModelFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B4D7C1E3CDFDE0057358B /* ModelFirebase.swift */; };
@@ -59,10 +60,11 @@
 
 /* Begin PBXFileReference section */
 		044895BCE1E6800407E08F52 /* Pods-Shopping List - Final ProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopping List - Final ProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shopping List - Final ProjectUITests/Pods-Shopping List - Final ProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
-		04531C401E4F6BBE00A6582F /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		04531C401E4F6BBE00A6582F /* ShoppingListFinalProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShoppingListFinalProject-Bridging-Header.h"; sourceTree = "<group>"; };
 		04531C411E4F6D2100A6582F /* ModelSql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelSql.swift; sourceTree = "<group>"; };
 		04531C431E4F7F5600A6582F /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		04531C451E4F87DA00A6582F /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		04531C471E4F9E1400A6582F /* ShoppingItemSql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingItemSql.swift; sourceTree = "<group>"; };
 		045B4D771E3CD6B90057358B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Shopping List - Final Project/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		045B4D7A1E3CDF9D0057358B /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		045B4D7C1E3CDFDE0057358B /* ModelFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelFirebase.swift; sourceTree = "<group>"; };
@@ -139,8 +141,9 @@
 			children = (
 				045B4D7A1E3CDF9D0057358B /* Model.swift */,
 				045B4D7C1E3CDFDE0057358B /* ModelFirebase.swift */,
-				04531C401E4F6BBE00A6582F /* BridgingHeader.h */,
+				04531C401E4F6BBE00A6582F /* ShoppingListFinalProject-Bridging-Header.h */,
 				04531C411E4F6D2100A6582F /* ModelSql.swift */,
+				04531C471E4F9E1400A6582F /* ShoppingItemSql.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 				84F532481E2921F70043455D /* ShoppingTableViewCell.swift in Sources */,
 				840D89931E290043002EB764 /* ViewController.swift in Sources */,
 				84F5324E1E2923E40043455D /* CreateNewGroupViewController.swift in Sources */,
+				04531C481E4F9E1400A6582F /* ShoppingItemSql.swift in Sources */,
 				84F532461E2921850043455D /* AddNewProductViewController.swift in Sources */,
 				045B4D7B1E3CDF9D0057358B /* Model.swift in Sources */,
 				84F5324A1E2923980043455D /* RegisterViewController.swift in Sources */,
@@ -699,6 +703,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "GalLevy-BenMamia.ShoppingListFinalProject";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Shopping List - Final Project/ShoppingListFinalProject-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
