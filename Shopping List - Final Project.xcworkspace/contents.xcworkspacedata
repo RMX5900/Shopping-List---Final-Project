@@ -10,4 +10,7 @@
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Packages/SQLite-0.11.2/SQLite.xcodeproj">
+   </FileRef>
 </Workspace>

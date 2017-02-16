@@ -16,7 +16,7 @@ extension Product{
     static let PR_COMPANY = "COMPANY"
     static let PR_ADDED_DATE = "ADDED_DATE"
     static let PR_GROUP_ID = "GROUP_ID"
-    
+    /*
     
     static func createTable(database:OpaquePointer?)->Bool{
         var errormsg: UnsafeMutablePointer<Int8>? = nil
@@ -63,13 +63,14 @@ extension Product{
             //let quantity = self.productQuantity.cString(using: .utf8)
             let company = self.productCompany.cString(using: .utf8)
             let date = self.addedDate.cString(using: .utf8)
-           // let groupId = self.cString(using: .utf8)
+            let groupId = ""
             
             sqlite3_bind_text(sqlite3_stmt, 1, key,-1,nil);
             sqlite3_bind_text(sqlite3_stmt, 2, name,-1,nil);
             sqlite3_bind_text(sqlite3_stmt, 3, imageUrl,-1,nil);
             sqlite3_bind_text(sqlite3_stmt, 5, company,-1,nil);
             sqlite3_bind_text(sqlite3_stmt, 6, date,-1,nil);
+             sqlite3_bind_text(sqlite3_stmt, 7, groupId,-1,nil);
             
             if(sqlite3_step(sqlite3_stmt) == SQLITE_DONE){
                 print("new row added succefully")
@@ -78,10 +79,10 @@ extension Product{
         sqlite3_finalize(sqlite3_stmt)
     }
     
-    static func getAllStudents(database:OpaquePointer?)->[Product]{
+    static func getAllStudents(database:OpaquePointer?, groupId:String)->[Product]{
         var products = [Product]()
         var sqlite3_stmt: OpaquePointer? = nil
-        if (sqlite3_prepare_v2(database,"SELECT * from PRODUCTS WHERE GROUP_ID=?;",-1,&sqlite3_stmt,nil) == SQLITE_OK){
+        if (sqlite3_prepare_v2(database,"SELECT * from PRODUCTS WHERE GROUP_ID=?;",-1,&sqlite3_stmt,groupId) == SQLITE_OK){
             while(sqlite3_step(sqlite3_stmt) == SQLITE_ROW){
                 let stId =  String(validatingUTF8:sqlite3_column_text(sqlite3_stmt,0))
                 let name =  String(validatingUTF8:sqlite3_column_text(sqlite3_stmt,1))
@@ -90,7 +91,7 @@ extension Product{
                 if (imageUrl != nil && imageUrl == ""){
                     imageUrl = nil
                 }
-                let product = Product.init(name: <#T##String#>, company: <#T##String#>, quantity: <#T##Int#>, image: <#T##String#>, addedByUserId: <#T##String#>, addedDate: <#T##String#>, productKey: <#T##String#>)
+                let product = Product.init(name: "", company: "", quantity: 0, image: "", addedByUserId: "", addedDate: "", productKey: "")
                 products.append(product)
             }
         }
@@ -98,4 +99,5 @@ extension Product{
         return products
     }
     
+ */
 }

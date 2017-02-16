@@ -12,6 +12,7 @@ pod 'Firebase/Core'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod 'Firebase/Storage'
+pod 'SQLite.swift', '~> 0.11.2'
   target 'Shopping List - Final ProjectTests' do
     inherit! :search_paths
     # Pods for testing

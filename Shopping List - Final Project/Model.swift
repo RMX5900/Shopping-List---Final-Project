@@ -14,21 +14,36 @@ import UIKit
 class Model{
     static let instance = Model()
     
-    //lazy private var modelSql:ModelSql? = ModelSql()
+    private var modelSql:ModelSql?
     lazy private var modelFirebase:ModelFirebase? = ModelFirebase()
     
     private init(){
+
+        do {
+            try modelSql  =  ModelSql()
+        } catch let error as String {
+            print(error)
+        } catch {
+            print("error")
+        }
+
     }
     func removeGroup(userId:String, groupId:String){
         modelFirebase?.removeGroup(userId: userId, groupId: groupId)
     }
     func addGroup(group:Group){
         modelFirebase?.addGroup(group: group)
-       // st.addStudent(database: modelSql?.database)
     }
     func addUser(user:User){
         modelFirebase?.addUser(user: user)
-        // st.addStudent(database: modelSql?.database)
+        do {
+            try modelSql?.addUser(user: user)
+        } catch let error as String {
+            print(error)
+        } catch {
+            print("error")
+        }
+
     }
     func addProduct(product:Product, groupId:String){
         modelFirebase?.addProduct(product: product, groupId: groupId)

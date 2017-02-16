@@ -102,7 +102,6 @@ class RegisterViewController: UIViewController {
                 FIRAuth.auth()?.signIn(withEmail: self.emailTextField.text!, password: self.passTextField.text!) { (user, error) in
                     //redirect user to main view (My Groups)
                     
-                    //todo check why it doesnt redirect to main view with this segue
                     self.activityIndicatorView.stopAnimating()
                     self.performSegue(withIdentifier: "presentRegisteredSegue", sender: self)
                 }

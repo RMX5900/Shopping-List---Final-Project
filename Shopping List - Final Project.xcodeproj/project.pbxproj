@@ -11,6 +11,7 @@
 		04531C441E4F7F5600A6582F /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04531C431E4F7F5600A6582F /* libsqlite3.0.tbd */; };
 		04531C461E4F87DA00A6582F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04531C451E4F87DA00A6582F /* libsqlite3.tbd */; };
 		04531C481E4F9E1400A6582F /* ShoppingItemSql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04531C471E4F9E1400A6582F /* ShoppingItemSql.swift */; };
+		04531C631E5111E900A6582F /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04531C621E5111E900A6582F /* SQLite.framework */; };
 		045B4D781E3CD6B90057358B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 045B4D771E3CD6B90057358B /* GoogleService-Info.plist */; };
 		045B4D7B1E3CDF9D0057358B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B4D7A1E3CDF9D0057358B /* Model.swift */; };
 		045B4D7D1E3CDFDE0057358B /* ModelFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B4D7C1E3CDFDE0057358B /* ModelFirebase.swift */; };
@@ -65,6 +66,7 @@
 		04531C431E4F7F5600A6582F /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		04531C451E4F87DA00A6582F /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		04531C471E4F9E1400A6582F /* ShoppingItemSql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingItemSql.swift; sourceTree = "<group>"; };
+		04531C621E5111E900A6582F /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = "Packages/SQLite-0.11.2/build/Debug-iphoneos/SQLite.framework"; sourceTree = "<group>"; };
 		045B4D771E3CD6B90057358B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Shopping List - Final Project/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		045B4D7A1E3CDF9D0057358B /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		045B4D7C1E3CDFDE0057358B /* ModelFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelFirebase.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04531C631E5111E900A6582F /* SQLite.framework in Frameworks */,
 				04531C461E4F87DA00A6582F /* libsqlite3.tbd in Frameworks */,
 				04531C441E4F7F5600A6582F /* libsqlite3.0.tbd in Frameworks */,
 				5A2CFA119D06FB70AB02FF5A /* Pods_Shopping_List___Final_Project.framework in Frameworks */,
@@ -151,6 +154,7 @@
 		143BF35812EAEBCB9A861C17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04531C621E5111E900A6582F /* SQLite.framework */,
 				04531C451E4F87DA00A6582F /* libsqlite3.tbd */,
 				04531C431E4F7F5600A6582F /* libsqlite3.0.tbd */,
 				836E397331593F1A27D3A861 /* Pods_Shopping_List___Final_Project.framework */,
@@ -699,6 +703,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Packages/SQLite-0.11.2/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = "Shopping List - Final Project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "GalLevy-BenMamia.ShoppingListFinalProject";
@@ -714,6 +722,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Packages/SQLite-0.11.2/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = "Shopping List - Final Project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "GalLevy-BenMamia.ShoppingListFinalProject";
